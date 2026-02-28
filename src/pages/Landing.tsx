@@ -188,7 +188,7 @@ const Landing: React.FC = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-5xl font-bold mb-6 text-slate-900 dark:text-white">
-              Complete School OS
+              Complete School OSSSSS
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
               Beyond the core modules, everything else runs in harmony.
