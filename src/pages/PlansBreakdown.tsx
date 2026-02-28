@@ -25,11 +25,11 @@ export default function PlansBreakdown() {
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white">
       <Navbar />
-      <main>
+      <main className="pt-32 pb-10">
         {/* =========================
             NORMAL PAGE HEADER
         ========================== */}
-        <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="max-w-7xl mx-auto px-6 pb-10">
           <Button
             variant="ghost"
             onClick={() => navigate("/plans")}
