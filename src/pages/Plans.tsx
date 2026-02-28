@@ -13,6 +13,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
 
 export default function Plans() {
   const navigate = useNavigate();
@@ -25,8 +27,21 @@ export default function Plans() {
     navigate("/plans/breakdown?view=compare");
   };
 
+  const pricingSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Mindsync Pricing Plans",
+    "description": "Simple, transparent pricing. Everything you need to run your school efficiently. No hidden fees."
+  };
+
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white font-sans transition-colors duration-300">
+      <SEO
+        title="Pricing Plans | Mindsync"
+        description="Flexible pricing plans for schools of all sizes. Choose between Basic, Standard, and Premium tiers with no hidden fees."
+        canonicalUrl="https://mindsync.solutions/plans"
+      />
+      <StructuredData data={pricingSchema} />
       <Navbar />
 
       <main className="pt-32 pb-20">

@@ -36,6 +36,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
 
 // Icon mapping based on MODULE_INFO strings
 const ICON_MAP: Record<string, any> = {
@@ -239,8 +241,25 @@ export default function Products() {
 
   const activeModuleDetails = selectedModule ? MODULE_DETAILS[selectedModule] : null;
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Mindsync Modules",
+    "description": "Explore the comprehensive suite of tools designed to handle every aspect of your institution's operations, from academics to finance.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Mindsync"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
+      <SEO
+        title="Modules & Features | Mindsync"
+        description="Explore our comprehensive suite of educational modules. From Student Information to Advanced Finance, find the tools to run your school."
+        canonicalUrl="https://mindsync.solutions/products"
+      />
+      <StructuredData data={productSchema} />
       <Navbar />
 
       {/* Decorative Background */}

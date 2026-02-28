@@ -18,6 +18,8 @@ import {
 import { motion } from "framer-motion";
 
 import { toast } from "sonner";
+import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
 
 const FloatingElement = ({
   children,
@@ -124,8 +126,27 @@ export default function Contact() {
     },
   ];
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Mindsync Support & Sales",
+    "description": "Ready to transform your institution? Contact our team to launch your next-generation school management system.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Mindsync Solutions",
+      "email": "hello@mindsync.solutions",
+      "telephone": "+233 5436 13605"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] px-3 text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
+      <SEO
+        title="Contact Us | Mindsync"
+        description="Get in touch with the Mindsync team. We're here to help you launch your next-generation school management system."
+        canonicalUrl="https://mindsync.solutions/contact"
+      />
+      <StructuredData data={contactSchema} />
       <Navbar />
 
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

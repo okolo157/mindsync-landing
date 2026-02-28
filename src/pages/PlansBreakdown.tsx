@@ -11,6 +11,7 @@ import {
 } from "@/config/subscriptionTiers";
 import { TierComparisonView } from "@/components/Plans/TierComparisonView";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { SEO } from "@/components/SEO";
 
 export default function PlansBreakdown() {
   const navigate = useNavigate();
@@ -24,6 +25,11 @@ export default function PlansBreakdown() {
 
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white">
+      <SEO
+        title="Plan Comparison | Mindsync"
+        description="Detailed breakdown of features and modules for all Mindsync pricing tiers. Compare Basic, Standard, and Premium plans."
+        canonicalUrl={`https://mindsync.solutions/plans/breakdown${tier ? `/${tier}` : ''}`}
+      />
       <Navbar />
       <main className="pt-32 pb-10">
         {/* =========================

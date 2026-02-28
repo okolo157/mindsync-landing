@@ -7,6 +7,7 @@ import {
   Globe,
   Video,
 } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 export default function ScheduleDemo() {
   useEffect(() => {
@@ -38,6 +39,11 @@ export default function ScheduleDemo() {
 
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white font-sans transition-colors duration-300 overflow-x-hidden">
+      <SEO
+        title="Schedule a Demo | Mindsync"
+        description="Book a 30-minute deep dive to see how Mindsync streamlines institutional management. Interactive demo with product specialists."
+        canonicalUrl="https://mindsync.solutions/schedule-demo"
+      />
       <Navbar />
 
       {/* Ambient Background */}

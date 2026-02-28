@@ -25,6 +25,8 @@ import { Differentiation } from "@/components/Landing/Differentiation";
 import { TrustSection } from "@/components/Landing/TrustSection";
 import { PowerFeatures } from "@/components/Landing/PowerFeatures";
 import { MobileAppShowcase } from "@/components/Landing/MobileAppShowcase";
+import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
 
 const adminsLight = "/assets/admins.png";
 const adminsDark = "/assets/admins-dark.png";
@@ -32,8 +34,37 @@ const adminsDark = "/assets/admins-dark.png";
 const Landing: React.FC = () => {
   const navigate = useNavigate();
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mindsync",
+    "url": "https://mindsync.solutions",
+    "logo": "https://mindsync.solutions/mindsync.svg",
+    "description": "Comprehensive school management platform for students, staff, attendance, fees, assessments, and more."
+  };
+
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mindsync SIMS",
+    "operatingSystem": "Web",
+    "applicationCategory": "EducationalApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] px-3 text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
+      <SEO
+        title="Mindsync - Student Information Management System"
+        description="Experience the power of a fully integrated educational ecosystem. Mindsync automates the mundane, so you can focus on what matters: Education."
+        canonicalUrl="https://mindsync.solutions"
+      />
+      <StructuredData data={organizationSchema} />
+      <StructuredData data={softwareSchema} />
       <Navbar />
 
       {/* Ambient Background - Simplified for Performance */}
