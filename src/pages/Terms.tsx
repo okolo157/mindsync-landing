@@ -1,8 +1,11 @@
 
+import Navbar from "@/components/Landing/Navbar";
+import Footer from "@/components/Landing/Footer";
 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#030712] text-slate-900 dark:text-white font-sans transition-colors duration-300">
+      <Navbar />
       <div className="container mx-auto px-4 pt-32 pb-20">
         <div className="max-w-4xl mx-auto prose dark:prose-invert">
           <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
@@ -57,6 +60,7 @@ export default function Terms() {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Navbar from "@/components/Landing/Navbar";
+import Footer from "@/components/Landing/Footer";
 import { motion } from "framer-motion";
 import {
   Calendar,
@@ -20,7 +22,7 @@ import {
   MessageSquare,
   ArrowRight,
   Shield,
-  
+
   Check
 } from "lucide-react";
 import { CTAButton } from "@/components/ui/ctaButton";
@@ -239,6 +241,7 @@ export default function Products() {
 
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
+      <Navbar />
 
       {/* Decorative Background */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -431,7 +434,7 @@ export default function Products() {
           </motion.div>
         </div>
       </div>
-
+      <Footer />
     </div>
   );
 }

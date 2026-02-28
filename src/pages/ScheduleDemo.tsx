@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import Navbar from "@/components/Landing/Navbar";
+import Footer from "@/components/Landing/Footer";
 import {
   CheckCircle2,
   Clock,
@@ -36,6 +38,7 @@ export default function ScheduleDemo() {
 
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white font-sans transition-colors duration-300 overflow-x-hidden">
+      <Navbar />
 
       {/* Ambient Background */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -125,7 +128,7 @@ export default function ScheduleDemo() {
           </div>
         </div>
       </div>
-
+      <Footer />
     </div>
   );
 }

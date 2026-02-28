@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Navbar from "@/components/Landing/Navbar";
+import Footer from "@/components/Landing/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -124,6 +126,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] px-3 text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
+      <Navbar />
 
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/5 dark:bg-indigo-500/10 blur-[120px]" />
@@ -380,7 +383,7 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
-
+      <Footer />
     </div>
   );
 }

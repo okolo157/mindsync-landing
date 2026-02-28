@@ -1,4 +1,6 @@
 
+import Navbar from "@/components/Landing/Navbar";
+import Footer from "@/components/Landing/Footer";
 import { SUBSCRIPTION_TIERS, SubscriptionTier } from "@/config/subscriptionTiers";
 import { CTAButton } from "@/components/ui/ctaButton";
 import { Check, HelpCircle, Smartphone, Eye } from "lucide-react";
@@ -25,6 +27,7 @@ export default function Plans() {
 
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white font-sans transition-colors duration-300">
+      <Navbar />
 
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
@@ -206,7 +209,7 @@ export default function Plans() {
           </div>
         </div>
       </main>
-
+      <Footer />
     </div>
   );
 }
