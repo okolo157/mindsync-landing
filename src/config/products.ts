@@ -95,7 +95,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "jobs",
-    name: "Relief Teacher Booking",
+    name: "Teacher Booking",
     tagline: "Instant Staffing Solutions.",
     description: "An AI-powered recruitment engine designed for high-speed relief teacher placements.",
     longDescription: "Our recruitment engine utilize advanced matching algorithms to find the best-suited relief teachers for urgent institutional openings. Average match time of 4 hours across 4,200+ verified professionals globally.",
