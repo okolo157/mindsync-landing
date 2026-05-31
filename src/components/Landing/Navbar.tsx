@@ -48,7 +48,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 z-50 w-full py-4 bg-white/70 dark:bg-black/20 backdrop-blur-md border-b border-white/10 dark:border-white/5 transition-all duration-300">
       <div className="flex items-center max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* LEFT — Logo */}
+        {/* LEFT - Logo */}
         <div className="flex flex-1">
           <img
             src={isDark ? logoDark : logoLight}
@@ -58,7 +58,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* CENTER — Desktop Navigation */}
+        {/* CENTER - Desktop Navigation */}
         <div className="hidden md:flex flex-1 items-center justify-center gap-12">
           <button
             onClick={() => navigate("/")}
@@ -165,7 +165,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* RIGHT — Actions */}
+        {/* RIGHT - Actions */}
         <div className="hidden md:flex flex-1 items-center justify-end gap-6">
           <button
             onClick={toggleTheme}

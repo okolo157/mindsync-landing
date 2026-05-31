@@ -7,6 +7,20 @@ import { SEO } from "@/components/SEO";
 import { StructuredData } from "@/components/StructuredData";
 import { useState } from "react";
 import { ProductQuickView } from "@/components/Landing/ProductQuickView";
+import { 
+  GraduationCap, Layout, Users, Zap, Share2, Bot, BookOpen, Trophy 
+} from "lucide-react";
+
+const productIconMap: Record<string, React.ElementType> = {
+  sims: GraduationCap,
+  lms: Layout,
+  tutorsmart: Users,
+  coursify: Zap,
+  magazine: Share2,
+  jobs: Bot,
+  coach: BookOpen,
+  sport: Trophy
+};
 
 export default function Products() {
   const navigate = useNavigate();
@@ -56,17 +70,28 @@ export default function Products() {
       <div className="relative z-10 pb-32">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            {PRODUCTS.map((product) => (
+            {PRODUCTS.map((product) => {
+              const Icon = productIconMap[product.id] || Zap;
+              return (
               <div
                 key={product.id}
                 onClick={() => setSelectedProduct(product)}
                 className="group relative p-12 rounded-[3.5rem] bg-white dark:bg-slate-900/30 border border-slate-100 dark:border-white/5 hover:border-indigo-500/20 transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.4)] overflow-hidden cursor-pointer"
               >
                 {/* Visual Accent */}
-                <div className="absolute -right-24 -top-24 w-64 h-64 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-[100px] group-hover:bg-indigo-500/15 transition-all duration-700" />
+                <div 
+                  className="absolute -right-24 -top-24 w-64 h-64 rounded-full blur-[100px] opacity-[0.05] dark:opacity-[0.1] group-hover:opacity-[0.15] transition-all duration-700" 
+                  style={{ backgroundColor: product.themeColor }}
+                />
+
+                {/* Blended Background Icon */}
+                <Icon 
+                  className="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.02] dark:opacity-[0.04] group-hover:opacity-[0.08] group-hover:scale-110 transition-all duration-700 pointer-events-none" 
+                  style={{ color: product.themeColor }} 
+                />
 
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-8">
+                  <div className="flex items-start justify-end mb-8">
                     {product.link && (
                       <div
                         className="p-4 rounded-full bg-slate-50 dark:bg-slate-800/50 text-slate-400 group-hover:text-indigo-600 transition-colors ml-auto"
@@ -79,7 +104,10 @@ export default function Products() {
                   <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-indigo-600 transition-colors duration-500">
                     {product.name}
                   </h2>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8">
+                  <div 
+                    className="text-[10px] font-bold uppercase tracking-widest mb-8"
+                    style={{ color: product.themeColor }}
+                  >
                     {product.tagline}
                   </div>
 
@@ -95,7 +123,8 @@ export default function Products() {
                   </div>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         </div>
       </div>

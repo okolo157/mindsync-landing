@@ -12,14 +12,16 @@ import {
   PieChart, CheckSquare, Video, History, 
   FileText, Share2, Layers, Send, 
   Image as ImageIcon, MapPin, Clock, 
-  ShieldCheck, BaggageClaim 
+  ShieldCheck, BaggageClaim, BookOpen,
+  Activity, MessageSquare, Trophy, ClipboardList
 } from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
   Calendar, GraduationCap, CreditCard, Users, Fingerprint, 
   Bot, Layout, PieChart, CheckSquare, Zap, Video, History, 
   FileText, Share2, Layers, Send, Image: ImageIcon, MapPin, 
-  Clock, ShieldCheck, BaggageClaim
+  Clock, ShieldCheck, BaggageClaim, BookOpen, Activity,
+  MessageSquare, Trophy, ClipboardList
 };
 
 const ProductDetailPage: React.FC = () => {

@@ -84,7 +84,7 @@ export const PRODUCTS: Product[] = [
     tagline: "School Newsletter & Events Platform.",
     description: "A specialized platform providing parents with an integrated view of events and communications.",
     longDescription: "MindSync Magazine bridges the gap between school and home. As a specialized module within the SIMS ecosystem, it streamlines the distribution of digital newsletters and provides a synchronized view of institutional events.",
-    link: "https://magazine.mindsync.solutions",
+    link: "https://sims.mindsync.solutions",
     themeColor: "#f59e0b",
     features: [
       { title: "Integrated Events", description: "Unified school-wide event tracking and parental sync.", iconName: "Calendar" },
@@ -97,7 +97,7 @@ export const PRODUCTS: Product[] = [
     id: "jobs",
     name: "Teacher Booking",
     tagline: "Instant Staffing Solutions.",
-    description: "An AI-powered recruitment engine designed for high-speed relief teacher placements.",
+    description: "An AI-powered recruitment engine designed for high-speed relief placements.",
     longDescription: "Our recruitment engine utilize advanced matching algorithms to find the best-suited relief teachers for urgent institutional openings. Average match time of 4 hours across 4,200+ verified professionals globally.",
     link: "https://jobs.mindsync.solutions",
     themeColor: "#3b82f6",
@@ -107,5 +107,38 @@ export const PRODUCTS: Product[] = [
       { title: "Compliance Automator", description: "Instant background clearances and credential verification.", iconName: "ShieldCheck" },
       { title: "Rapid Response", description: "Avg. placement match time under 4 hours for urgent needs.", iconName: "Clock" }
     ]
+  },
+  {
+    id: "coach",
+    name: "MindSync Coach",
+    tagline: "Workday efficiency for teachers and students.",
+    description: "A classroom workflow tool tailored specifically for day-to-day teacher and student routines.",
+    longDescription: "MindSync Coach focuses entirely on day-to-day learning routines. Tailored for teachers and students rather than school-wide administration, it simplifies lesson planning, student engagement, and feedback.",
+    link: "https://coach.mindsync.solutions",
+    themeColor: "#f43f5e",
+    features: [
+      { title: "Lesson Planner", description: "Visual tools to outline courses, map assignments, and organize curriculum materials.", iconName: "BookOpen" },
+      { title: "Classroom Pulse", description: "Quick polls and interactive checks to measure student comprehension in real time.", iconName: "Activity" },
+      { title: "Student Dashboard", description: "A clean portal where students track their tasks, view feedback, and access resources.", iconName: "Layout" },
+      { title: "Direct Feedback", description: "Quick text and audio notes for personalized teacher-to-student guidance.", iconName: "MessageSquare" },
+      { title: "Progress Insights", description: "Lightweight tracking to see academic growth and identify students needing support.", iconName: "PieChart" }
+    ]
+  },
+  {
+    id: "sport",
+    name: "MindSync Sport",
+    tagline: "The central hub for school athletic operations.",
+    description: "An all-inclusive operations suite for schools to manage athletic programs and bring all collaborators onboard.",
+    longDescription: "MindSync Sport consolidates school athletic operations into a single platform. Schools buy in to handle sports programs and onboard their entire network of sports convenors, boards, and local coordinators.",
+    link: "https://sport.mindsync.solutions",
+    themeColor: "#06b6d4",
+    features: [
+      { title: "Fixture Scheduler", description: "Organize tournament brackets, coordinate matches, and schedule games automatically.", iconName: "Trophy" },
+      { title: "Board Oversight", description: "High-level dashboards for compliance reporting, budget tracking, and program auditing.", iconName: "ClipboardList" },
+      { title: "Logistics Hub", description: "Coordinate team travel, manage equipment inventory, and reserve sporting venues.", iconName: "MapPin" },
+      { title: "Onboarding Portal", description: "Invite external convenors, coaches, and boards into your school’s secure environment.", iconName: "Users" },
+      { title: "Compliance Sentinel", description: "Automate medical waivers, check coaching credentials, and manage safety documents.", iconName: "ShieldCheck" }
+    ]
   }
 ];
+

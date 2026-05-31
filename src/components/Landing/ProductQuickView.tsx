@@ -8,7 +8,8 @@ import {
   Calendar, GraduationCap, CreditCard, Users, Fingerprint,
   Bot, Layout, PieChart, CheckSquare, Zap, Video, History,
   FileText, Share2, Layers, Send, Image as ImageIcon, MapPin,
-  Clock, ShieldCheck, BaggageClaim, ArrowRight, Shield
+  Clock, ShieldCheck, BaggageClaim, ArrowRight, Shield, BookOpen,
+  Activity, MessageSquare, Trophy, ClipboardList
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +19,8 @@ const iconMap: Record<string, React.ElementType> = {
   Calendar, GraduationCap, CreditCard, Users, Fingerprint,
   Bot, Layout, PieChart, CheckSquare, Zap, Video, History,
   FileText, Share2, Layers, Send, Image: ImageIcon, MapPin,
-  Clock, ShieldCheck, BaggageClaim
+  Clock, ShieldCheck, BaggageClaim, BookOpen, Activity,
+  MessageSquare, Trophy, ClipboardList
 };
 
 interface ProductQuickViewProps {
