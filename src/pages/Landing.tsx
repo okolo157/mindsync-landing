@@ -14,10 +14,11 @@ const Landing: React.FC = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "MindSync Solutions",
-    "url": "https://mindsync.solutions",
-    "logo": "https://mindsync.solutions/mindsync.svg",
-    "description": "MindSync Solutions provides a comprehensive ecosystem of educational technology products, including SIMS, LMS, Tutoring platforms, and more."
+    name: "MindSync Solutions",
+    url: "https://mindsync.solutions",
+    logo: "https://mindsync.solutions/mindsync.svg",
+    description:
+      "MindSync Solutions provides a comprehensive ecosystem of educational technology products, including SIMS, LMS, Tutoring platforms, and more.",
   };
 
   return (
@@ -47,15 +48,16 @@ const Landing: React.FC = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_50%)]" />
 
           <div className="relative z-10 py-24 px-8 md:px-16 text-center">
-            <div
-              className="max-w-3xl mx-auto"
-            >
+            <div className="max-w-3xl mx-auto">
               <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
                 Architecting the Future
-                <span className="block text-indigo-400 opacity-90">of Education.</span>
+                <span className="block text-indigo-400 opacity-90">
+                  of Education.
+                </span>
               </h2>
               <p className="text-xl md:text-2xl text-indigo-100/70 mb-12 font-medium">
-                Connect with our specialists today to orchestrate your institution's digital transformation.
+                Connect with our specialists today to orchestrate your
+                institution's digital transformation.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
