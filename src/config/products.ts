@@ -176,7 +176,6 @@ export const PRODUCTS: Product[] = [
       "A specialized platform providing parents with an integrated view of events and communications.",
     longDescription:
       "MindSync Magazine bridges the gap between school and home. As a specialized module within the SIMS ecosystem, it streamlines the distribution of digital newsletters and provides a synchronized view of institutional events.",
-    link: "https://sims.mindsync.solutions",
     themeColor: "#f59e0b",
     features: [
       {
