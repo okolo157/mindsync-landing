@@ -242,11 +242,11 @@ export const PRODUCTS: Product[] = [
   {
     id: "coach",
     name: "MindSync Coach",
-    tagline: "Workday efficiency for teachers and students.",
+    tagline: "AI-native classroom toolbox built for schools.",
     description:
-      "A classroom workflow tool tailored specifically for day-to-day teacher and student routines.",
+      "Lesson plans, smart grading, a Socratic tutor and more — all powered by AI and ready the moment you log in.",
     longDescription:
-      "MindSync Coach focuses entirely on day-to-day learning routines. Tailored for teachers and students rather than school-wide administration, it simplifies lesson planning, student engagement, and feedback.",
+      "Coach is an AI-native classroom suite built for schools. Lesson plans, smart grading, a Socratic tutor and more, all powered by AI and ready the moment you log in.",
     link: "https://coach.mindsync.solutions",
     themeColor: "#f43f5e",
     features: [

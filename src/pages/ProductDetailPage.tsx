@@ -5,13 +5,13 @@ import Navbar from "@/components/Landing/Navbar";
 import Footer from "@/components/Landing/Footer";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
-import { 
-  ArrowLeft, CheckCircle2, Globe, Shield, 
-  Zap, Calendar, GraduationCap, CreditCard, 
-  Users, Fingerprint, Bot, Layout, 
-  PieChart, CheckSquare, Video, History, 
-  FileText, Share2, Layers, Send, 
-  Image as ImageIcon, MapPin, Clock, 
+import {
+  ArrowLeft, Globe,
+  Zap, Calendar, GraduationCap, CreditCard,
+  Users, Fingerprint, Bot, Layout,
+  PieChart, CheckSquare, Video, History,
+  FileText, Share2, Layers, Send,
+  Image as ImageIcon, MapPin, Clock,
   ShieldCheck, BaggageClaim, BookOpen,
   Activity, MessageSquare, Trophy, ClipboardList
 } from "lucide-react";
@@ -148,57 +148,6 @@ const ProductDetailPage: React.FC = () => {
                                 </motion.div>
                             );
                         })}
-                    </div>
-                </div>
-            </section>
-
-            {/* Institutional Security / Trust */}
-            <section className="py-32">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
-                        <div className="flex-1">
-                            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-                                Engineered for <span className="text-indigo-600">Institutional Excellence.</span>
-                            </h2>
-                            <div className="space-y-6">
-                                {[
-                                    { title: "Enterprise Security", desc: "Military-grade encryption and granular role-based access control." },
-                                    { title: "Dynamic Scalability", desc: "Built to support institutions from primary schools to global universities." },
-                                    { title: "Open Interoperability", desc: "Seamless integration with existing educational tools and databases." }
-                                ].map((item, i) => (
-                                    <div key={i} className="flex gap-4">
-                                        <div className="pt-1">
-                                            <CheckCircle2 className="w-6 h-6 text-indigo-500" />
-                                        </div>
-                                        <div>
-                                            <h4 className="text-xl font-bold mb-1">{item.title}</h4>
-                                            <p className="text-slate-500 dark:text-slate-400 font-medium">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex-1 relative">
-                            <div 
-                              className="absolute inset-0 rounded-[4rem] blur-3xl opacity-10"
-                              style={{ backgroundColor: product.themeColor }}
-                            />
-                            <div className="relative z-10 p-12 rounded-[4rem] bg-slate-950 text-white border border-white/10 overflow-hidden group">
-                                <div className="absolute top-0 right-0 p-8">
-                                    <Shield className="w-20 h-20 text-indigo-500/20" />
-                                </div>
-                                <h3 className="text-3xl font-bold mb-8">Ready to transform?</h3>
-                                <p className="text-indigo-100/70 text-lg mb-12 font-medium">
-                                    Deploying {product.name} is the first step towards a fully integrated digital educational ecosystem.
-                                </p>
-                                <button 
-                                  onClick={() => navigate("/contact")}
-                                  className="w-full h-16 rounded-2xl bg-white text-slate-950 font-black text-lg hover:scale-[1.02] transition-all"
-                                >
-                                    Schedule Deployment Consult
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
