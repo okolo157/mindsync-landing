@@ -32,7 +32,7 @@ import type { TestResult, NetworkQuality, TestPhase } from '@/types/speedTest';
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function fmtSpeed(mbps: number): string {
-  if (mbps === 0) return '—';
+  if (mbps === 0) return '0 Mbps';
   if (mbps >= 1000) return `${(mbps / 1000).toFixed(2)} Gbps`;
   if (mbps >= 100) return `${Math.round(mbps)} Mbps`;
   return `${mbps.toFixed(1)} Mbps`;
@@ -408,7 +408,7 @@ export default function SpeedTest() {
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-foreground overflow-x-clip selection:bg-indigo-500/30 transition-colors duration-300">
       <SEO
         title="Internet Speed Test | MindSync Solutions"
-        description="Test your internet connection speed — download, upload, ping, jitter, and packet loss. Real-time results with historical tracking."
+        description="Test your internet connection speed: download, upload, ping, jitter, and packet loss. Real-time results with historical tracking."
         canonicalUrl="https://mindsync.solutions/speed"
       />
 
@@ -431,16 +431,12 @@ export default function SpeedTest() {
             transition={{ duration: 0.5 }}
             className="mb-10 text-center"
           >
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/8 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-indigo-400">
-              <Activity className="h-3.5 w-3.5" />
-              Real-time network diagnostics
-            </div>
             <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
               Internet Speed Test
             </h1>
             <p className="mt-3 text-base text-muted-foreground max-w-md mx-auto">
-              Measure your connection with multi-stream testing — download, upload,
-              latency, jitter, and packet loss.
+              Measure download, upload, latency, jitter, and packet loss across
+              multiple parallel connections.
             </p>
           </motion.div>
 

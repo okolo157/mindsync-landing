@@ -31,14 +31,13 @@ function backgroundArcPath() {
 }
 
 function formatValue(v: number): string {
-  if (v === 0) return '—';
+  if (v === 0) return '0';
   if (v >= 1000) return (v / 1000).toFixed(2);
   if (v >= 100) return Math.round(v).toString();
   return v.toFixed(1);
 }
 
 function getUnit(v: number): string {
-  if (v === 0) return '';
   return v >= 1000 ? 'Gbps' : 'Mbps';
 }
 
