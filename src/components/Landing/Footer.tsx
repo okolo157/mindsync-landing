@@ -25,6 +25,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-10">
             <a href="/products" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Ecosystem</a>
+            <a href="/speed" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Speed Test</a>
             <a href="/privacy" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Privacy</a>
             <a href="/terms" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Terms</a>
             <a href="mailto:hello@mindsync.solutions" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Support</a>
