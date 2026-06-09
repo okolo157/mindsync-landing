@@ -484,13 +484,40 @@ export default function SpeedTest() {
               </AnimatePresence>
 
               {/* ── Speedometer ────────────────────────────────────────── */}
-              <div className="flex justify-center">
+              <div className="flex flex-col items-center gap-1">
                 <Speedometer
                   value={gaugeValue}
                   maxValue={gaugeMax}
                   phase={gaugePhase}
-                  label={gaugeLabel}
                 />
+                {/* Speed readout below the gauge */}
+                <div className="flex flex-col items-center -mt-2 mb-2">
+                  <motion.span
+                    key={gaugeValue}
+                    initial={{ opacity: 0.6 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.15 }}
+                    className="text-5xl font-extrabold tabular-nums leading-none tracking-tight text-foreground"
+                  >
+                    {gaugeValue >= 1000
+                      ? (gaugeValue / 1000).toFixed(2)
+                      : gaugeValue >= 100
+                        ? Math.round(gaugeValue).toString()
+                        : gaugeValue === 0
+                          ? '0'
+                          : gaugeValue.toFixed(1)}
+                  </motion.span>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                      {gaugeValue >= 1000 ? 'Gbps' : 'Mbps'}
+                    </span>
+                    {gaugeLabel && (
+                      <span className="text-xs font-medium text-muted-foreground/60 uppercase tracking-wider">
+                        {gaugeLabel}
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
 
               {/* ── Phase status ───────────────────────────────────────── */}

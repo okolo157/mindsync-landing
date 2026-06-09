@@ -6,7 +6,6 @@ interface SpeedometerProps {
   value: number;       // Mbps
   maxValue?: number;   // Mbps
   phase: TestPhase;
-  label?: string;
 }
 
 const CX = 200;
@@ -30,18 +29,8 @@ function backgroundArcPath() {
   return `M ${s.x.toFixed(2)} ${s.y.toFixed(2)} A ${R} ${R} 0 1 1 ${e.x.toFixed(2)} ${e.y.toFixed(2)}`;
 }
 
-function formatValue(v: number): string {
-  if (v === 0) return '0';
-  if (v >= 1000) return (v / 1000).toFixed(2);
-  if (v >= 100) return Math.round(v).toString();
-  return v.toFixed(1);
-}
 
-function getUnit(v: number): string {
-  return v >= 1000 ? 'Gbps' : 'Mbps';
-}
-
-export function Speedometer({ value, maxValue = 1000, phase, label }: SpeedometerProps) {
+export function Speedometer({ value, maxValue = 1000, phase }: SpeedometerProps) {
   const fraction = Math.min(1, Math.max(0, value / maxValue));
   const dashOffset = CIRCUMFERENCE * (1 - fraction);
 
@@ -74,9 +63,9 @@ export function Speedometer({ value, maxValue = 1000, phase, label }: Speedomete
 
   return (
     <svg
-      viewBox="0 0 400 290"
+      viewBox="0 0 400 240"
       className="w-full max-w-[420px]"
-      aria-label={`Speed: ${formatValue(value)} ${getUnit(value)}`}
+      aria-label={`Speed gauge: ${value} Mbps`}
       role="img"
     >
       <defs>
@@ -177,58 +166,6 @@ export function Speedometer({ value, maxValue = 1000, phase, label }: Speedomete
       {/* ── Needle hub ─────────────────────────────────────────────── */}
       <circle cx={CX} cy={CY} r={10} fill="currentColor" fillOpacity={0.15} />
       <circle cx={CX} cy={CY} r={5} fill="currentColor" fillOpacity={0.4} />
-
-      {/* ── Speed value ────────────────────────────────────────────── */}
-      <motion.text
-        key={formatValue(value)}
-        x={CX}
-        y={CY - 28}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fontSize={56}
-        fontWeight={800}
-        fill="currentColor"
-        fontFamily="inherit"
-        initial={{ opacity: 0.6 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.15 }}
-      >
-        {formatValue(value)}
-      </motion.text>
-
-      {/* ── Unit ───────────────────────────────────────────────────── */}
-      <text
-        x={CX}
-        y={CY + 14}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fontSize={15}
-        fill="currentColor"
-        fillOpacity={0.45}
-        fontFamily="inherit"
-        fontWeight={500}
-        letterSpacing={1}
-      >
-        {getUnit(value).toUpperCase()}
-      </text>
-
-      {/* ── Phase label ────────────────────────────────────────────── */}
-      {label && (
-        <text
-          x={CX}
-          y={CY + 36}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fontSize={11}
-          fill="currentColor"
-          fillOpacity={0.4}
-          fontFamily="inherit"
-          fontWeight={600}
-          letterSpacing={2}
-        >
-          {label.toUpperCase()}
-        </text>
-      )}
     </svg>
   );
 }
