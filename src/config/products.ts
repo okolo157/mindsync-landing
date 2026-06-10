@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "sims",
     name: "MindSync SIMS",
-    tagline: "The Architectural Foundation of Your Institution.",
+    tagline: "Institutional Foundation",
     description:
       "A comprehensive School Information Management System designed to handle every operational facet from student data to financial auditing.",
     longDescription:
@@ -62,7 +62,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "lms",
     name: "MindSync LMS",
-    tagline: "The LMS Built for Modern Educators.",
+    tagline: "For Modern Educators",
     description:
       "A world-class Learning Management System designed for seamless digital coursework and interactive learning.",
     longDescription:
@@ -104,7 +104,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "tutorsmart",
     name: "TutorSmart",
-    tagline: "Expert Tutors. Real Results.",
+    tagline: "Expert Tutors",
     description:
       "The world's most secure one-to-one tutoring platform, powered by registered teachers.",
     longDescription:
@@ -137,7 +137,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "coursify",
     name: "Coursify",
-    tagline: "AI-based Rich Text & PDF to LMS Converter.",
+    tagline: "AI Content Converter",
     description:
       "Convert AI based rich text, pdf etc to lms ready format converted for any lms.",
     longDescription:
@@ -171,7 +171,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "magazine",
     name: "MindSync Magazine",
-    tagline: "School Newsletter & Events Platform.",
+    tagline: "Newsletter & Events",
     description:
       "A specialized platform providing parents with an integrated view of events and communications.",
     longDescription:
@@ -205,7 +205,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "jobs",
     name: "School Staffing",
-    tagline: "School Staffing Solutions.",
+    tagline: "School Staffing",
     description:
       "An AI-powered recruitment engine designed for high-speed teacher staffing for schools that need them.",
     longDescription:
@@ -242,7 +242,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "coach",
     name: "MindSync Coach",
-    tagline: "AI-native classroom toolbox built for schools.",
+    tagline: "AI Classroom Suite",
     description:
       "Lesson plans, smart grading, a Socratic tutor and more — all powered by AI and ready the moment you log in.",
     longDescription:
@@ -285,7 +285,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "sport",
     name: "MindSync Sport",
-    tagline: "The central hub for school athletic operations.",
+    tagline: "Athletic Operations Hub",
     description:
       "An all-inclusive operations suite for schools to manage athletic programs and bring all collaborators onboard.",
     longDescription:

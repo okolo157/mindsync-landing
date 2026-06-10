@@ -49,9 +49,10 @@ const ProductDetailPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white transition-colors duration-300">
-            <SEO 
+            <SEO
                 title={`${product.name} | MindSync Solutions`}
-                description={product.description}
+                description={product.longDescription || product.description}
+                canonicalUrl={`https://mindsync.solutions/products/${product.id}`}
             />
             <Navbar />
 

@@ -1,10 +1,16 @@
 
 import Navbar from "@/components/Landing/Navbar";
 import Footer from "@/components/Landing/Footer";
+import { SEO } from "@/components/SEO";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#030712] text-slate-900 dark:text-white font-sans transition-colors duration-300">
+      <SEO
+        title="Privacy Policy | MindSync Solutions"
+        description="Read MindSync Solutions' privacy policy. We are committed to protecting your personal data and ensuring transparency in how we handle information."
+        canonicalUrl="https://mindsync.solutions/privacy"
+      />
       <Navbar />
       <div className="container mx-auto px-4 pt-32 pb-20">
         <div className="max-w-4xl mx-auto prose dark:prose-invert">

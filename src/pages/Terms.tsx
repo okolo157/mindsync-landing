@@ -1,10 +1,16 @@
 
 import Navbar from "@/components/Landing/Navbar";
 import Footer from "@/components/Landing/Footer";
+import { SEO } from "@/components/SEO";
 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#030712] text-slate-900 dark:text-white font-sans transition-colors duration-300">
+      <SEO
+        title="Terms of Service | MindSync Solutions"
+        description="Read MindSync Solutions' terms of service. Understand your rights and obligations when using our educational technology platform."
+        canonicalUrl="https://mindsync.solutions/terms"
+      />
       <Navbar />
       <div className="container mx-auto px-4 pt-32 pb-20">
         <div className="max-w-4xl mx-auto prose dark:prose-invert">
