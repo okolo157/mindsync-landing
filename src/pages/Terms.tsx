@@ -94,13 +94,38 @@ export default function Terms() {
           <p>MindSync Solutions provides the following integrated services as part of the Platform. The specific modules available to you depend on your Subscription plan:</p>
           <table>
             <tbody>
-              <tr><td className="font-semibold align-top">SIMS (School Information Management System)</td><td>Manages student enrolment, admissions, attendance tracking, staff records, timetabling, examination scheduling, and administrative reporting</td></tr>
-              <tr><td className="font-semibold align-top">LMS (Learning Management System)</td><td>Enables course delivery, assignment management, online assessments, grading, student progress tracking, and educator-student interaction</td></tr>
-              <tr><td className="font-semibold align-top">AI Course Creator</td><td>AI-assisted tools for educators to generate, structure, sequence, and refine curriculum content and course materials</td></tr>
-              <tr><td className="font-semibold align-top">AI Tutoring</td><td>Personalised adaptive learning powered by AI, providing individualised feedback, practice exercises, and learning recommendations based on each student's profile</td></tr>
-              <tr><td className="font-semibold align-top">Parent Portal</td><td>A secure interface for parents and guardians to monitor academic progress, attendance, timetables, teacher communications, and fee statements</td></tr>
-              <tr><td className="font-semibold align-top">Communication Tools</td><td>Integrated messaging, announcements, push notifications, SMS alerts, and email notifications for all Platform user roles</td></tr>
-              <tr><td className="font-semibold align-top">Reporting &amp; Analytics</td><td>Dashboards, custom reports, and data visualisations for administrators and educators covering academic performance, engagement, and institutional metrics</td></tr>
+              <tr>
+                <td className="font-semibold align-top w-52">MindSync SIMS</td>
+                <td>An institutional-grade School Information Management System that forms the operational backbone of the Platform. Covers AI-powered timetable scheduling, academic records and grade management, automated fee collection and financial ledgers, full HR lifecycle and staff payroll, biometric and mobile attendance tracking, and multi-format administrative reporting. Designed to scale from single-campus schools to multi-site institutions.</td>
+              </tr>
+              <tr>
+                <td className="font-semibold align-top">MindSync LMS</td>
+                <td>A world-class Learning Management System built for seamless digital coursework delivery. Compatible with global standards including Canvas and IMSCC. Provides interactive course creation with multimedia support, a digital gradebook with advanced submission management, role-based access for teachers and students, an enrolment engine for class assignment, and discussion-based collaborative learning tools.</td>
+              </tr>
+              <tr>
+                <td className="font-semibold align-top">Coursify (AI Course Creator)</td>
+                <td>An AI-powered content transformation engine that converts static documents, PDFs, rich text, and video into fully interactive, SCORM 1.2/2004-compliant courseware deployable on any major LMS. Features include smart AI-driven document transformation, SCORM package export, rapid turnaround (professional course creation in under 24 hours), and engagement-optimised multimedia output designed for maximum learner retention.</td>
+              </tr>
+              <tr>
+                <td className="font-semibold align-top">MindSync Coach (AI Classroom Suite)</td>
+                <td>An AI-native classroom toolbox for educators. Includes a visual lesson planner for curriculum mapping and assignment organisation, Classroom Pulse for real-time interactive student comprehension checks, a student dashboard for task tracking and resource access, direct feedback tools for text and audio annotations, and lightweight progress insights to identify students needing support.</td>
+              </tr>
+              <tr>
+                <td className="font-semibold align-top">TutorSmart (Tutoring Platform)</td>
+                <td>A secure one-to-one tutoring marketplace connecting students with verified, registered professional educators. All tutors are ClassCover Verified and Working with Children (WWC) Checked. Covers all ages and subjects with nationwide reach, zero lock-in contracts, and a free initial consultation. Operates as a standalone platform and as an integrated service within the MindSync ecosystem.</td>
+              </tr>
+              <tr>
+                <td className="font-semibold align-top">School Staffing (Recruitment Engine)</td>
+                <td>An AI-powered relief teacher recruitment platform with a network of 4,200+ verified professionals across 32+ countries. Uses intelligent matching algorithms based on subject expertise and availability to achieve an average placement time of under 4 hours. Includes automated compliance clearances, credential verification, and background check management for urgent institutional staffing needs.</td>
+              </tr>
+              <tr>
+                <td className="font-semibold align-top">MindSync Magazine</td>
+                <td>A school communication and events platform that bridges the gap between institutions and families. Provides premium digital newsletter templates, unified school-wide event tracking with parent calendar sync, multi-channel distribution via web and mobile portals, and deep integration within the SIMS ecosystem for consistent institutional communication.</td>
+              </tr>
+              <tr>
+                <td className="font-semibold align-top">MindSync Sport</td>
+                <td>A comprehensive athletic operations suite for schools. Manages tournament brackets, fixture scheduling, and game coordination; provides high-level board dashboards for compliance reporting and budget tracking; coordinates team travel, equipment inventory, and venue reservations; facilitates onboarding of external convenors, coaches, and sports boards; and automates medical waivers, coaching credentials, and safety document management.</td>
+              </tr>
             </tbody>
           </table>
           <p>MindSync reserves the right to add, modify, suspend, or discontinue any feature or module of the Platform at any time. For Institutions under active Subscriptions, material adverse changes will be communicated at least 30 days in advance, during which time the Institution may elect to terminate and receive a pro-rata refund of prepaid fees for the affected period.</p>
