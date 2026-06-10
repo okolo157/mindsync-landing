@@ -4,8 +4,6 @@ import Landing from "@/pages/Landing";
 import Products from "@/pages/Products";
 import Contact from "@/pages/Contact";
 import ScheduleDemo from "@/pages/ScheduleDemo";
-import Privacy from "@/pages/Privacy";
-import Terms from "@/pages/Terms";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import NotFound from "@/pages/NotFound";
 import SpeedTest from "@/pages/SpeedTest";
@@ -22,8 +20,6 @@ function App() {
           <Route path="/products/:productId" element={<ProductDetailPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/schedule-demo" element={<ScheduleDemo />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
           <Route path="/speed" element={<SpeedTest />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
