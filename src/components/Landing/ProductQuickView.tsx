@@ -8,7 +8,7 @@ import {
   Calendar, GraduationCap, CreditCard, Users, Fingerprint,
   Bot, Layout, PieChart, CheckSquare, Zap, Video, History,
   FileText, Share2, Layers, Send, Image as ImageIcon, MapPin,
-  Clock, ShieldCheck, BaggageClaim, ArrowRight, Shield, BookOpen,
+  Clock, ShieldCheck, BaggageClaim, ArrowRight, BookOpen,
   Activity, MessageSquare, Trophy, ClipboardList
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -101,16 +101,7 @@ export const ProductQuickView: React.FC<ProductQuickViewProps> = ({
                 </div>
               </div>
 
-              {/* Trust/Security Badge */}
-              <div className="mt-20 p-6 rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
-                  <Shield className="w-6 h-6 text-indigo-500" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-white mb-1">Institutional Grade</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Enterprise security and compliance baked into every module.</div>
-                </div>
-              </div>
+
             </div>
           </div>
 
