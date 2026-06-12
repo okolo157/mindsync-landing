@@ -62,42 +62,42 @@ export const PRODUCTS: Product[] = [
   {
     id: "lms",
     name: "MindSync LMS",
-    tagline: "For Modern Educators",
+    tagline: "Advanced Digital Learning",
     description:
-      "A world-class Learning Management System designed for seamless digital coursework and interactive learning.",
+      "A world-class Learning Management System designed for digital coursework, interactive forums, and secure assessment.",
     longDescription:
-      "Our LMS empowers educators to create immersive digital learning experiences. Compatible with global standards like Canvas and IMSCC, it provides a high-performance environment for Coursework delivery and digital grade monitoring.",
+      "Our LMS empowers educators to create immersive digital learning experiences. Fully Canvas-compatible (supporting IMSCC standard packages), it features a built-in quiz builder, secure lockdown browser for exam integrity, and support for AR/VR and AI tools.",
     link: "https://lms.mindsync.solutions",
     themeColor: "#8b5cf6",
     features: [
       {
         title: "Canvas Compatible",
         description:
-          "Seamless integration with existing educational standards (IMSCC).",
+          "Seamless integration with existing educational standards (IMSCC package imports).",
         iconName: "Layout",
       },
       {
-        title: "Digital Gradebook",
-        description: "Advanced progress tracking and submission management.",
-        iconName: "CheckSquare",
+        title: "Lockdown Browser",
+        description:
+          "Enforce fullscreen mode and block copy-paste during sensitive exams.",
+        iconName: "ShieldCheck",
       },
       {
-        title: "Interactive Courses",
-        description:
-          "Support for rich multimedia and discussion-based learning.",
-        iconName: "Video",
+        title: "Quiz & Assessment Builder",
+        description: "Advanced progress tracking, auto-grading, and submission management.",
+        iconName: "CheckSquare",
       },
       {
         title: "Role-Based Logic",
         description:
-          "Dedicated interfaces and permissions for Teachers and Students.",
+          "Dedicated interfaces and permissions for Teachers, Students, and Admins.",
         iconName: "Layers",
       },
       {
-        title: "Enrolment Engine",
+        title: "Interactive Forums",
         description:
-          "Streamlined student list and class assignment management.",
-        iconName: "Users",
+          "Support for rich multimedia discussions, video, and announcements.",
+        iconName: "Video",
       },
     ],
   },
@@ -137,33 +137,33 @@ export const PRODUCTS: Product[] = [
   {
     id: "coursify",
     name: "Coursify",
-    tagline: "AI Content Converter",
+    tagline: "AI Course Converter",
     description:
-      "Convert AI based rich text, pdf etc to lms ready format converted for any lms.",
+      "Convert PDFs, documents, videos, and raw text into interactive, LMS-compatible courses instantly using AI.",
     longDescription:
-      "Coursify leverages proprietary AI to rebrand and repurpose existing educational materials. Whether it's a PDF, raw text, or a YouTube video, Coursify converts it into high-fidelity, interactive courseware ready for deployment (SCORM 1.2/2004) on any LMS platform.",
+      "Coursify leverages advanced AI to rebrand and repurpose existing educational materials. Whether it's a PDF document, raw text, or a YouTube video, Coursify splits it into modules, summarizes key notes, creates quizzes, and exports it into major LMS formats (such as IMSCC or SCORM) in minutes.",
     link: "https://coursify.mindsync.solutions",
     themeColor: "#10b981",
     features: [
       {
-        title: "Smart Transformation",
+        title: "Smart Ingestion",
         description:
-          "Convert static documents into interactive courses via AI.",
+          "Convert static documents and lecture notes into interactive lessons via AI.",
         iconName: "Zap",
       },
       {
-        title: "SCORM Export",
-        description: "Generate standard SCORM files ready for any major LMS.",
+        title: "Video to Course",
+        description: "Segment video playlists and generate structured course content and notes.",
+        iconName: "Video",
+      },
+      {
+        title: "SCORM & IMSCC Export",
+        description: "Generate standard course packages ready for Canvas, Moodle, or other major LMS platforms.",
         iconName: "FileText",
       },
       {
-        title: "Rapid Turnaround",
-        description: "Professional course creation in under 24 hours.",
-        iconName: "Clock",
-      },
-      {
-        title: "Engagement Optimized",
-        description: "Multimedia-rich content designed to maximize retention.",
+        title: "AI Quiz Generator",
+        description: "Create misconception-aware assessments and quizzes automatically.",
         iconName: "Bot",
       },
     ],
@@ -171,52 +171,51 @@ export const PRODUCTS: Product[] = [
   {
     id: "magazine",
     name: "MindSync Magazine",
-    tagline: "Newsletter & Events",
+    tagline: "Newsletter & Event Portal",
     description:
-      "A specialized platform providing parents with an integrated view of events and communications.",
+      "An integrated portal providing parents with a unified view of school events, announcements, and digital newsletters.",
     longDescription:
-      "MindSync Magazine bridges the gap between school and home. As a specialized module within the SIMS ecosystem, it streamlines the distribution of digital newsletters and provides a synchronized view of institutional events.",
+      "MindSync Magazine bridges the communication gap between schools and families. Fully integrated with the SIMS student database, it automates the creation of beautiful, mobile-responsive newsletters and synchronized event notifications.",
     themeColor: "#f59e0b",
     features: [
       {
-        title: "Integrated Events",
-        description: "Unified school-wide event tracking and parental sync.",
-        iconName: "Calendar",
+        title: "Parent Sync",
+        description: "Directly feeds off the SIMS database for secure, zero-friction audience sync.",
+        iconName: "Users",
       },
       {
-        title: "Digital Newsletters",
+        title: "Responsive Newsletters",
         description:
-          "Premium, responsive communication templates for institutions.",
+          "Premium communication templates for announcements, school news, and digital magazines.",
         iconName: "Image",
       },
       {
-        title: "SIMS Integration",
-        description:
-          "Operates as a specialized deep-dive module within the SIMS.",
-        iconName: "Share2",
+        title: "Integrated Calendar",
+        description: "Unified, school-wide events calendar synced directly to parent portals.",
+        iconName: "Calendar",
       },
       {
-        title: "Institutional Reach",
-        description: "Multi-channel distribution via Web and Mobile portal.",
+        title: "Multi-Channel Delivery",
+        description: "Broadcast updates via email, web dashboards, and mobile notifications.",
         iconName: "Send",
       },
     ],
   },
   {
     id: "jobs",
-    name: "School Staffing",
-    tagline: "School Staffing",
+    name: "MindSync Jobs",
+    tagline: "Teacher Staffing Platform",
     description:
       "An AI-powered recruitment engine designed for high-speed teacher staffing for schools that need them.",
     longDescription:
-      "Our recruitment engine utilize advanced matching algorithms to find the best-suited relief teachers for urgent institutional openings. Average match time of 4 hours across 4,200+ verified professionals globally.",
+      "Our recruitment engine utilizes advanced matching algorithms to find the best-suited relief teachers for urgent institutional openings. Average match time of 4 hours across 4,200+ verified professionals globally, spanning 32+ countries.",
     link: "https://jobs.mindsync.solutions",
     themeColor: "#3b82f6",
     features: [
       {
         title: "AI-Powered Matching",
         description:
-          "Intelligent staffing based on subject expertise and availability.",
+          "Intelligent staffing matches based on subject expertise and availability.",
         iconName: "Bot",
       },
       {
@@ -228,13 +227,13 @@ export const PRODUCTS: Product[] = [
       {
         title: "Compliance Automator",
         description:
-          "Instant background clearances and credential verification.",
+          "Instant background clearances, identity checks, and credential verification.",
         iconName: "ShieldCheck",
       },
       {
-        title: "Rapid Response",
+        title: "Rapid Placement",
         description:
-          "Avg. placement match time under 4 hours for urgent needs.",
+          "Average match time of under 4 hours for urgent relief and substitute needs.",
         iconName: "Clock",
       },
     ],
@@ -244,84 +243,90 @@ export const PRODUCTS: Product[] = [
     name: "MindSync Coach",
     tagline: "AI Classroom Suite",
     description:
-      "Lesson plans, smart grading, a Socratic tutor and more — all powered by AI and ready the moment you log in.",
+      "AI-native tools for lesson planning, grading rubrics, Socratic tutoring, and homework help.",
     longDescription:
-      "Coach is an AI-native classroom suite built for schools. Lesson plans, smart grading, a Socratic tutor and more, all powered by AI and ready the moment you log in.",
+      "Coach is an AI-native classroom suite designed to streamline educational workflows. It provides lesson planning, smart grading, and custom subject bots for teachers, paired with a 24/7 Socratic AI tutor, study notebooks, and gamified achievements for students.",
     link: "https://coach.mindsync.solutions",
     themeColor: "#f43f5e",
     features: [
       {
-        title: "Lesson Planner",
+        title: "Socratic AI Tutor",
         description:
-          "Visual tools to outline courses, map assignments, and organize curriculum materials.",
+          "24/7 guided questioning that builds real student understanding instead of giving shortcuts.",
+        iconName: "Brain",
+      },
+      {
+        title: "AI Lesson Planner",
+        description:
+          "Curriculum-aligned lesson plans, worksheets, and bell ringers generated in seconds.",
         iconName: "BookOpen",
       },
       {
-        title: "Classroom Pulse",
+        title: "Rubric Grading",
         description:
-          "Quick polls and interactive checks to measure student comprehension in real time.",
-        iconName: "Activity",
+          "Automated assessment scoring, personalized feedback drafts, and IEP generation.",
+        iconName: "CheckSquare",
       },
       {
-        title: "Student Dashboard",
+        title: "Scan & Grade",
         description:
-          "A clean portal where students track their tasks, view feedback, and access resources.",
-        iconName: "Layout",
+          "Photograph handwritten student worksheets for instant AI feedback and grading.",
+        iconName: "ScanLine",
       },
       {
-        title: "Direct Feedback",
+        title: "Voice Cloning",
         description:
-          "Quick text and audio notes for personalized teacher-to-student guidance.",
-        iconName: "MessageSquare",
+          "Clone teacher voices for personalized audio read-aloud content that students can replay.",
+        iconName: "Mic",
       },
       {
-        title: "Progress Insights",
+        title: "Custom AI Bots",
         description:
-          "Lightweight tracking to see academic growth and identify students needing support.",
-        iconName: "PieChart",
+          "Configure specialized, subject-focused AI assistants for classroom engagement.",
+        iconName: "Bot",
       },
     ],
   },
   {
     id: "sport",
     name: "MindSync Sport",
-    tagline: "Athletic Operations Hub",
+    tagline: "K-12 Athletic Management",
     description:
-      "An all-inclusive operations suite for schools to manage athletic programs and bring all collaborators onboard.",
+      "An athletic operations hub for organizing meets, tracking leaderboards, and managing equipment booking.",
     longDescription:
-      "MindSync Sport consolidates school athletic operations into a single platform. Schools buy in to handle sports programs and onboard their entire network of sports convenors, boards, and local coordinators.",
+      "MindSync Sport is a comprehensive athletic management system. It coordinates school carnivals, schedules match brackets, records live event scores, tracks house standings, and manages sports equipment logistics.",
     link: "https://sport.mindsync.solutions",
     themeColor: "#06b6d4",
     features: [
       {
-        title: "Fixture Scheduler",
+        title: "Meet Manager",
         description:
-          "Organize tournament brackets, coordinate matches, and schedule games automatically.",
+          "Configure athletic or swimming meets, seed heats, and assign marshal stations.",
         iconName: "Trophy",
       },
       {
-        title: "Board Oversight",
+        title: "Live Scoreboards",
         description:
-          "High-level dashboards for compliance reporting, budget tracking, and program auditing.",
+          "Real-time scoring, live standings, and public leaderboards for spectators.",
         iconName: "ClipboardList",
       },
       {
-        title: "Logistics Hub",
+        title: "Consent & Nominations",
         description:
-          "Coordinate team travel, manage equipment inventory, and reserve sporting venues.",
-        iconName: "MapPin",
-      },
-      {
-        title: "Onboarding Portal",
-        description:
-          "Invite external convenors, coaches, and boards into your school’s secure environment.",
-        iconName: "Users",
-      },
-      {
-        title: "Compliance Sentinel",
-        description:
-          "Automate medical waivers, check coaching credentials, and manage safety documents.",
+          "Streamline parent permission forms and athlete event nomination entries.",
         iconName: "ShieldCheck",
+      },
+      {
+        title: "Equipment Booking",
+        description:
+          "Track sports gear inventory, reservations, and maintenance logs.",
+        iconName: "BaggageClaim",
+      },
+      {
+        title: "SIMS Integration",
+        description:
+          "Synchronize school rosters, house groupings, and parent details directly from SIMS.",
+        iconName: "Users",
       },
     ],
   },

@@ -13,7 +13,8 @@ import {
   FileText, Share2, Layers, Send,
   Image as ImageIcon, MapPin, Clock,
   ShieldCheck, BaggageClaim, BookOpen,
-  Activity, MessageSquare, Trophy, ClipboardList
+  Activity, MessageSquare, Trophy, ClipboardList, Brain,
+  ScanLine, Mic
 } from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -21,7 +22,7 @@ const iconMap: Record<string, React.ElementType> = {
   Bot, Layout, PieChart, CheckSquare, Zap, Video, History, 
   FileText, Share2, Layers, Send, Image: ImageIcon, MapPin, 
   Clock, ShieldCheck, BaggageClaim, BookOpen, Activity,
-  MessageSquare, Trophy, ClipboardList
+  MessageSquare, Trophy, ClipboardList, Brain, ScanLine, Mic
 };
 
 const ProductDetailPage: React.FC = () => {
