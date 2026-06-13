@@ -4,13 +4,13 @@ export const AdvantageSection = () => {
   const highlights = [
     { 
       icon: Layers, 
-      title: 'Seamless Interoperation', 
+      title: 'Seamless Interconnectivity', 
       desc: 'Our products are engineered to share intelligence, creating a unified operational backbone for your institution.' 
     },
     { 
       icon: Cpu, 
       title: 'AI-First Foundation', 
-      desc: 'Leverage the power of document-to-course transformation and automated staffing, all within a single ecosystem.' 
+      desc: 'Leverage the power of AI-native learning, intelligent scheduling, and automated workflows across all our products.' 
     },
     { 
       icon: TrendingUp, 

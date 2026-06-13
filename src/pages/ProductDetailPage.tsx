@@ -154,6 +154,42 @@ const ProductDetailPage: React.FC = () => {
                 </div>
             </section>
 
+            {/* CTA Section */}
+            <section className="py-24 relative overflow-hidden px-4">
+                <div className="max-w-[1400px] mx-auto relative group">
+                    <div 
+                      className="absolute inset-0 rounded-[4rem] group-hover:scale-[1.01] transition-transform duration-700 bg-slate-900"
+                      style={{ 
+                        background: `linear-gradient(to top right, ${product.themeColor}dd, #0f172a)`
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_50%)]" />
+
+                    <div className="relative z-10 py-24 px-8 md:px-16 text-center">
+                        <div className="max-w-3xl mx-auto">
+                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
+                                Ready to Experience
+                                <span className="block text-slate-100 opacity-90 mt-4">
+                                    {product.name}?
+                                </span>
+                            </h2>
+                            <p className="text-xl md:text-2xl text-slate-300 mb-12 font-medium">
+                                Discover how {product.name} can streamline and elevate your educational environment.
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                                <button
+                                    onClick={() => navigate("/schedule-demo")}
+                                    className="px-12 h-16 rounded-full bg-white text-slate-950 font-black text-lg hover:scale-105 transition-all shadow-2xl"
+                                >
+                                    Book a Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <Footer />
         </div>
     );
