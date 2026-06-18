@@ -34,8 +34,8 @@ export const ProductShowcase = () => {
           <p
             className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium"
           >
-            Each platform in the MindSync ecosystem is meticulously engineered to
-            work in concert, providing a seamless operational backbone for your institution.
+            Each platform in the MindSync ecosystem is meticulously engineered around AI,
+            working in concert to provide an intelligent operational backbone for your institution.
           </p>
         </div>
 

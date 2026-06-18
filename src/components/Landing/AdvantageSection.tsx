@@ -35,7 +35,7 @@ export const AdvantageSection = () => {
             <span className="text-indigo-600 dark:text-indigo-500">Unlimited Potential.</span>
           </h2>
           <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">
-            MindSync is more than a suite of tools, it's a high-performance collective 
+            MindSync is more than a suite of tools, it's an AI-powered collective
             engineered to orchestrate your entire digital ecosystem.
           </p>
         </div>

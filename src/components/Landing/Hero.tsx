@@ -7,7 +7,7 @@ import { preloadCalendly } from "@/utils/calendly";
 export const Hero = () => {
     const navigate = useNavigate();
     const [index, setIndex] = useState(0);
-    const words = ["Solutions.", "Potential.", "Intelligence.", "Ecosystem.", "Evolution."];
+    const words = ["Intelligence.", "Potential.", "Learning.", "Solutions.", "Evolution."];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -44,8 +44,8 @@ export const Hero = () => {
                         <p
                             className="text-lg sm:text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-normal"
                         >
-                            MindSync Solutions is the definitive ecosystem for modern education.
-                            One unified platform powering the next generation of learning.
+                            MindSync Solutions is the AI-first ecosystem for modern education.
+                            One intelligent platform where AI powers the next generation of learning.
                         </p>
 
                         <div
