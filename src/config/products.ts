@@ -21,9 +21,9 @@ export const PRODUCTS: Product[] = [
     name: "MindSync SIMS",
     tagline: "Institutional Foundation",
     description:
-      "A comprehensive School Information Management System designed to handle every operational facet from student data to financial auditing.",
+      "An AI-powered School Information Management System designed to handle every operational facet from student data to financial auditing.",
     longDescription:
-      "MindSync SIMS (School Information Management System) is an institutional-grade ecosystem designed to handle the complex operational requirements of modern educational structures. From precision scheduling to automated financial ledgers, it provides the digital backbone for schools of any scale.",
+      "MindSync SIMS (School Information Management System) is an institutional-grade, AI-powered ecosystem designed to handle the complex operational requirements of modern educational structures. From AI-driven timetabling to automated financial ledgers, it provides the intelligent digital backbone for schools of any scale.",
     link: "https://sims.mindsync.solutions",
     themeColor: "#4f46e5",
     features: [
@@ -64,9 +64,9 @@ export const PRODUCTS: Product[] = [
     name: "MindSync LMS",
     tagline: "Advanced Digital Learning",
     description:
-      "A world-class Learning Management System designed for digital coursework, interactive forums, and secure assessment.",
+      "An AI-enhanced Learning Management System designed for digital coursework, interactive forums, and secure assessment.",
     longDescription:
-      "Our LMS empowers educators to create immersive digital learning experiences. Fully Canvas-compatible (supporting IMSCC standard packages), it features a built-in quiz builder, secure lockdown browser for exam integrity, and support for AR/VR and AI tools.",
+      "Our AI-enhanced LMS empowers educators to create immersive digital learning experiences. Fully Canvas-compatible (supporting IMSCC standard packages), it features a built-in quiz builder, secure lockdown browser for exam integrity, and native support for AR/VR and AI tools.",
     link: "https://lms.mindsync.solutions",
     themeColor: "#8b5cf6",
     features: [

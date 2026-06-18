@@ -24,8 +24,8 @@ const Landing: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] px-3 text-slate-900 dark:text-white overflow-x-clip selection:bg-indigo-500/30 font-sans transition-colors duration-300">
       <SEO
-        title="MindSync Solutions | Empowering Education Through Technology"
-        description="Discover the MindSync ecosystem. From school management to AI-powered course transformation, we provide the tools for the future of education."
+        title="MindSync Solutions | AI-First Education Platform"
+        description="Discover the AI-first MindSync ecosystem. From AI course creation and AI tutoring to intelligent school management, we power the future of education."
         canonicalUrl="https://mindsync.solutions"
       />
       <StructuredData data={organizationSchema} />

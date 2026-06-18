@@ -41,8 +41,8 @@ export default function Products() {
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
       <SEO
-        title="Our Solutions | MindSync Solutions"
-        description="Explore the MindSync ecosystem. From SIMS and LMS to tutoring platforms and AI tools, we provide the technology to power education."
+        title="AI Solutions for Education | MindSync Solutions"
+        description="Explore the AI-first MindSync ecosystem. From AI course creation and AI tutoring to intelligent SIMS and LMS, we provide the AI tools to power education."
         canonicalUrl="https://mindsync.solutions/products"
       />
       <StructuredData data={productSchema} />
