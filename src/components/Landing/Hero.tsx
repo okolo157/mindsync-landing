@@ -44,8 +44,8 @@ export const Hero = () => {
                         <p
                             className="text-lg sm:text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-normal"
                         >
-                            MindSync Solutions is an AI-first ecosystem for modern education.
-                            One intelligent platform where AI powers the next generation of education.
+                            MindSync Solutions uses AI to solve the real problems in education.
+                            One intelligent platform for schools, teachers, students, and parents.
                         </p>
 
                         <div
