@@ -230,6 +230,13 @@ export default function Navbar() {
                 </button>
 
                 <button
+                  onClick={() => window.location.href = "https://blog.mindsync.solutions"}
+                  className="text-left text-lg font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors"
+                >
+                  Blog
+                </button>
+
+                <button
                   onClick={() => navigate("/contact")}
                   className="text-left text-lg font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors"
                 >
