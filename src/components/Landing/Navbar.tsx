@@ -157,6 +157,14 @@ export default function Navbar() {
           </div>
 
           <button
+            onClick={() => window.location.href = "https://blog.mindsync.solutions"}
+            className="group relative text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors"
+          >
+            Blog
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-indigo-600 group-hover:w-full transition-all duration-300" />
+          </button>
+
+          <button
             onClick={() => navigate("/contact")}
             className="group relative text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors"
           >
