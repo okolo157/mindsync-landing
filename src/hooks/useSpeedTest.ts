@@ -63,7 +63,7 @@ export function useSpeedTest() {
       if (signal.aborted) break;
       const t = performance.now();
       try {
-        await fetch(`${CF}/__ping`, {
+        await fetch(`${CF}/__down?bytes=0`, {
           signal,
           cache: 'no-store',
           mode: 'cors',
@@ -170,7 +170,7 @@ export function useSpeedTest() {
           signal,
           cache: 'no-store',
           mode: 'cors',
-          headers: { 'Content-Type': 'application/octet-stream' },
+          headers: { 'Content-Type': 'text/plain' },
         });
         const speed =
           (CHUNK * 8) / ((performance.now() - t0) / 1000) / 1_000_000;

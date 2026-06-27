@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { useMemo, useState, useEffect } from 'react';
 import type { TestPhase } from '@/types/speedTest';
 
 interface SpeedometerProps {
@@ -31,6 +31,15 @@ function backgroundArcPath() {
 
 
 export function Speedometer({ value, maxValue = 1000, phase }: SpeedometerProps) {
+  const [isStartingUp, setIsStartingUp] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsStartingUp(false);
+    }, 1600);
+    return () => clearTimeout(timer);
+  }, []);
+
   const fraction = Math.min(1, Math.max(0, value / maxValue));
   const dashOffset = CIRCUMFERENCE * (1 - fraction);
 
@@ -53,17 +62,50 @@ export function Speedometer({ value, maxValue = 1000, phase }: SpeedometerProps)
     });
   }, [maxValue]);
 
-  // Needle tip position
-  const needleAngle = START_DEG + fraction * SWEEP;
-  const needleTip = polar(CX, CY, R - 12, needleAngle);
-  const needleBase1 = polar(CX, CY, 18, needleAngle + 90);
-  const needleBase2 = polar(CX, CY, 18, needleAngle - 90);
-
   const bgPath = backgroundArcPath();
+
+  const targetAngle = START_DEG + fraction * SWEEP;
+
+  // Animate the needle's absolute angle (in clock degrees) and rebuild the
+  // polygon points each frame — avoids SVG transform-origin/transform-box quirks.
+  const angle = useMotionValue(START_DEG);
+  const points = useTransform(angle, a => {
+    const tip = polar(CX, CY, R - 12, a);
+    const b1 = polar(CX, CY, 18, a + 90);
+    const b2 = polar(CX, CY, 18, a - 90);
+    return `${tip.x},${tip.y} ${b1.x},${b1.y} ${b2.x},${b2.y}`;
+  });
+
+  // Startup sweep: 0 → 100% → 0
+  useEffect(() => {
+    if (!isStartingUp) return;
+    const controls = animate(angle, [START_DEG, START_DEG + SWEEP, START_DEG], {
+      duration: 1.5,
+      ease: 'easeInOut',
+      times: [0, 0.5, 1],
+    });
+    return controls.stop;
+  }, [isStartingUp, angle]);
+
+  // Live tracking after startup
+  useEffect(() => {
+    if (isStartingUp) return;
+    const controls = animate(angle, targetAngle, {
+      type: 'spring',
+      damping: 20,
+      stiffness: 100,
+    });
+    return controls.stop;
+  }, [targetAngle, isStartingUp, angle]);
+
+  const arcAnimate = isStartingUp ? [CIRCUMFERENCE, 0, CIRCUMFERENCE] : dashOffset;
+  const arcTransition: any = isStartingUp
+    ? { duration: 1.5, ease: 'easeInOut', times: [0, 0.5, 1] }
+    : { duration: 0.25, ease: 'easeOut' };
 
   return (
     <svg
-      viewBox="0 0 400 240"
+      viewBox="0 20 400 280"
       className="w-full max-w-[420px]"
       aria-label={`Speed gauge: ${value} Mbps`}
       role="img"
@@ -116,8 +158,8 @@ export function Speedometer({ value, maxValue = 1000, phase }: SpeedometerProps)
         strokeLinecap="round"
         strokeDasharray={CIRCUMFERENCE}
         initial={{ strokeDashoffset: CIRCUMFERENCE }}
-        animate={{ strokeDashoffset: dashOffset }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
+        animate={{ strokeDashoffset: arcAnimate }}
+        transition={arcTransition}
         filter={isActive ? 'url(#arcGlow)' : undefined}
       />
 
@@ -151,17 +193,12 @@ export function Speedometer({ value, maxValue = 1000, phase }: SpeedometerProps)
       ))}
 
       {/* ── Needle ─────────────────────────────────────────────────── */}
-      {fraction > 0 && (
-        <motion.polygon
-          points={`${needleTip.x},${needleTip.y} ${needleBase1.x},${needleBase1.y} ${needleBase2.x},${needleBase2.y}`}
-          fill={`url(#${gradId})`}
-          fillOpacity={0.9}
-          filter="url(#needleGlow)"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
-        />
-      )}
+      <motion.polygon
+        points={points}
+        fill={`url(#${gradId})`}
+        fillOpacity={0.9}
+        filter="url(#needleGlow)"
+      />
 
       {/* ── Needle hub ─────────────────────────────────────────────── */}
       <circle cx={CX} cy={CY} r={10} fill="currentColor" fillOpacity={0.15} />

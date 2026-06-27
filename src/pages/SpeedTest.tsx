@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Download,
   Upload,
@@ -20,30 +20,31 @@ import {
   RefreshCw,
   X,
   ChevronDown,
-} from 'lucide-react';
-import Navbar from '@/components/Landing/Navbar';
-import Footer from '@/components/Landing/Footer';
-import { SEO } from '@/components/SEO';
-import { Speedometer } from '@/components/SpeedTest/Speedometer';
-import { useSpeedTest } from '@/hooks/useSpeedTest';
-import { cn } from '@/lib/utils';
-import type { TestResult, NetworkQuality, TestPhase } from '@/types/speedTest';
+  Rocket,
+} from "lucide-react";
+import Navbar from "@/components/Landing/Navbar";
+import Footer from "@/components/Landing/Footer";
+import { SEO } from "@/components/SEO";
+import { Speedometer } from "@/components/SpeedTest/Speedometer";
+import { useSpeedTest } from "@/hooks/useSpeedTest";
+import { cn } from "@/lib/utils";
+import type { TestResult, NetworkQuality, TestPhase } from "@/types/speedTest";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function fmtSpeed(mbps: number): string {
-  if (mbps === 0) return '0 Mbps';
+  if (mbps === 0) return "0 Mbps";
   if (mbps >= 1000) return `${(mbps / 1000).toFixed(2)} Gbps`;
   if (mbps >= 100) return `${Math.round(mbps)} Mbps`;
   return `${mbps.toFixed(1)} Mbps`;
 }
 
 function fmtDate(ts: number): string {
-  return new Intl.DateTimeFormat('en', {
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   }).format(new Date(ts));
 }
 
@@ -52,39 +53,39 @@ const QUALITY_CONFIG: Record<
   { label: string; color: string; bg: string; ring: string }
 > = {
   excellent: {
-    label: 'Excellent',
-    color: 'text-emerald-400',
-    bg: 'bg-emerald-500/10',
-    ring: 'ring-emerald-500/30',
+    label: "Excellent",
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
+    ring: "ring-emerald-500/30",
   },
   good: {
-    label: 'Good',
-    color: 'text-blue-400',
-    bg: 'bg-blue-500/10',
-    ring: 'ring-blue-500/30',
+    label: "Good",
+    color: "text-blue-400",
+    bg: "bg-blue-500/10",
+    ring: "ring-blue-500/30",
   },
   fair: {
-    label: 'Fair',
-    color: 'text-amber-400',
-    bg: 'bg-amber-500/10',
-    ring: 'ring-amber-500/30',
+    label: "Fair",
+    color: "text-amber-400",
+    bg: "bg-amber-500/10",
+    ring: "ring-amber-500/30",
   },
   poor: {
-    label: 'Poor',
-    color: 'text-red-400',
-    bg: 'bg-red-500/10',
-    ring: 'ring-red-500/30',
+    label: "Poor",
+    color: "text-red-400",
+    bg: "bg-red-500/10",
+    ring: "ring-red-500/30",
   },
 };
 
 const PHASE_LABEL: Record<TestPhase, string> = {
-  idle: '',
-  warmup: 'Initialising…',
-  ping: 'Measuring latency…',
-  download: 'Testing download…',
-  upload: 'Testing upload…',
-  complete: 'Test complete',
-  error: 'Test failed',
+  idle: "",
+  warmup: "Initialising…",
+  ping: "Measuring latency…",
+  download: "Testing download…",
+  upload: "Testing upload…",
+  complete: "Test complete",
+  error: "Test failed",
 };
 
 // ── Diagnostic capability check ──────────────────────────────────────────────
@@ -99,27 +100,27 @@ interface Capability {
 const CAPABILITIES: Capability[] = [
   {
     icon: MonitorPlay,
-    label: '4K Streaming',
-    requirement: '≥ 25 Mbps',
-    check: r => r.download >= 25,
+    label: "4K Streaming",
+    requirement: "≥ 25 Mbps",
+    check: (r) => r.download >= 25,
   },
   {
     icon: Video,
-    label: 'Video Calls',
-    requirement: '≥ 10 Mbps / ≤ 100ms ping',
-    check: r => r.download >= 10 && r.ping <= 100,
+    label: "Video Calls",
+    requirement: "≥ 10 Mbps / ≤ 100ms ping",
+    check: (r) => r.download >= 10 && r.ping <= 100,
   },
   {
     icon: Gamepad2,
-    label: 'Online Gaming',
-    requirement: '≥ 5 Mbps / ≤ 50ms ping',
-    check: r => r.download >= 5 && r.ping <= 50,
+    label: "Online Gaming",
+    requirement: "≥ 5 Mbps / ≤ 50ms ping",
+    check: (r) => r.download >= 5 && r.ping <= 50,
   },
   {
     icon: Trophy,
-    label: 'Competitive Gaming',
-    requirement: '≥ 25 Mbps / ≤ 20ms ping',
-    check: r => r.download >= 25 && r.ping <= 20,
+    label: "Competitive Gaming",
+    requirement: "≥ 25 Mbps / ≤ 20ms ping",
+    check: (r) => r.download >= 25 && r.ping <= 20,
   },
 ];
 
@@ -147,7 +148,7 @@ function MetricCard({
       transition={{ duration: 0.4, delay }}
       className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-800/60 p-5"
     >
-      <div className={cn('mb-3 inline-flex rounded-xl p-2.5', color)}>
+      <div className={cn("mb-3 inline-flex rounded-xl p-2.5", color)}>
         <Icon className="h-5 w-5" />
       </div>
       <div className="text-2xl font-extrabold text-foreground leading-none">
@@ -165,28 +166,34 @@ function MetricCard({
   );
 }
 
-function ProgressBar({ progress, phase }: { progress: number; phase: TestPhase }) {
+function ProgressBar({
+  progress,
+  phase,
+}: {
+  progress: number;
+  phase: TestPhase;
+}) {
   const isActive =
-    phase !== 'idle' && phase !== 'complete' && phase !== 'error';
+    phase !== "idle" && phase !== "complete" && phase !== "error";
 
   return (
     <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700/60">
       <motion.div
         className={cn(
-          'absolute inset-y-0 left-0 rounded-full',
-          phase === 'download' || phase === 'warmup' || phase === 'ping'
-            ? 'bg-gradient-to-r from-indigo-500 to-cyan-400'
-            : 'bg-gradient-to-r from-emerald-500 to-cyan-400',
+          "absolute inset-y-0 left-0 rounded-full",
+          phase === "download" || phase === "warmup" || phase === "ping"
+            ? "bg-gradient-to-r from-indigo-500 to-cyan-400"
+            : "bg-gradient-to-r from-emerald-500 to-cyan-400",
         )}
-        initial={{ width: '0%' }}
+        initial={{ width: "0%" }}
         animate={{ width: `${progress}%` }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
       />
       {isActive && (
         <motion.div
           className="absolute inset-y-0 w-20 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-          animate={{ x: ['-80px', '100vw'] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ["-80px", "100vw"] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
         />
       )}
     </div>
@@ -198,7 +205,7 @@ function QualityBadge({ quality }: { quality: NetworkQuality }) {
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-bold ring-1',
+        "inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-bold ring-1",
         cfg.bg,
         cfg.color,
         cfg.ring,
@@ -207,14 +214,26 @@ function QualityBadge({ quality }: { quality: NetworkQuality }) {
       <span className="relative flex h-2 w-2">
         <span
           className={cn(
-            'absolute inline-flex h-full w-full animate-ping rounded-full opacity-75',
-            quality === 'excellent' ? 'bg-emerald-400' : quality === 'good' ? 'bg-blue-400' : quality === 'fair' ? 'bg-amber-400' : 'bg-red-400',
+            "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
+            quality === "excellent"
+              ? "bg-emerald-400"
+              : quality === "good"
+                ? "bg-blue-400"
+                : quality === "fair"
+                  ? "bg-amber-400"
+                  : "bg-red-400",
           )}
         />
         <span
           className={cn(
-            'relative inline-flex h-2 w-2 rounded-full',
-            quality === 'excellent' ? 'bg-emerald-400' : quality === 'good' ? 'bg-blue-400' : quality === 'fair' ? 'bg-amber-400' : 'bg-red-400',
+            "relative inline-flex h-2 w-2 rounded-full",
+            quality === "excellent"
+              ? "bg-emerald-400"
+              : quality === "good"
+                ? "bg-blue-400"
+                : quality === "fair"
+                  ? "bg-amber-400"
+                  : "bg-red-400",
           )}
         />
       </span>
@@ -238,10 +257,10 @@ function GaugeTab({
     <button
       onClick={onClick}
       className={cn(
-        'flex flex-col items-center gap-0.5 rounded-xl px-4 py-2.5 transition-all text-sm font-semibold',
+        "flex flex-col items-center gap-0.5 rounded-xl px-4 py-2.5 transition-all text-sm font-semibold",
         active
-          ? 'bg-slate-100 dark:bg-white/10 text-foreground ring-1 ring-slate-300 dark:ring-white/15'
-          : 'text-muted-foreground hover:text-foreground',
+          ? "bg-slate-100 dark:bg-white/10 text-foreground ring-1 ring-slate-300 dark:ring-white/15"
+          : "text-muted-foreground hover:text-foreground",
       )}
     >
       <span className="text-[11px] font-bold uppercase tracking-widest opacity-60">
@@ -272,7 +291,7 @@ function HistoryRow({ result, index }: { result: TestResult; index: number }) {
       <td className="py-3">
         <span
           className={cn(
-            'rounded-full px-2.5 py-0.5 text-xs font-bold',
+            "rounded-full px-2.5 py-0.5 text-xs font-bold",
             cfg.bg,
             cfg.color,
           )}
@@ -288,10 +307,10 @@ function HistoryRow({ result, index }: { result: TestResult; index: number }) {
 
 function exportJSON(history: TestResult[]) {
   const blob = new Blob([JSON.stringify(history, null, 2)], {
-    type: 'application/json',
+    type: "application/json",
   });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = `speed-results-${Date.now()}.json`;
   a.click();
@@ -299,16 +318,17 @@ function exportJSON(history: TestResult[]) {
 }
 
 function exportCSV(history: TestResult[]) {
-  const header = 'Date,Download (Mbps),Upload (Mbps),Ping (ms),Jitter (ms),Packet Loss (%),Quality\n';
+  const header =
+    "Date,Download (Mbps),Upload (Mbps),Ping (ms),Jitter (ms),Packet Loss (%),Quality\n";
   const rows = history
     .map(
-      r =>
+      (r) =>
         `"${fmtDate(r.timestamp)}",${r.download},${r.upload},${r.ping},${r.jitter},${r.packetLoss},${r.quality}`,
     )
-    .join('\n');
-  const blob = new Blob([header + rows], { type: 'text/csv' });
+    .join("\n");
+  const blob = new Blob([header + rows], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = `speed-results-${Date.now()}.csv`;
   a.click();
@@ -324,56 +344,71 @@ function copyResult(result: TestResult) {
     `Jitter:   ${result.jitter} ms`,
     `Packet Loss: ${result.packetLoss}%`,
     `Quality:  ${QUALITY_CONFIG[result.quality].label}`,
-  ].join('\n');
+  ].join("\n");
   navigator.clipboard.writeText(text).catch(() => {});
 }
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
 export default function SpeedTest() {
-  const { phase, progress, liveSpeed, result, history, error, startTest, cancelTest, clearHistory } =
-    useSpeedTest();
+  const {
+    phase,
+    progress,
+    liveSpeed,
+    result,
+    history,
+    error,
+    startTest,
+    cancelTest,
+    clearHistory,
+  } = useSpeedTest();
 
   // Which metric the gauge shows (only meaningful after complete)
-  const [gaugeView, setGaugeView] = useState<'download' | 'upload' | 'ping'>('download');
+  const [gaugeView, setGaugeView] = useState<"download" | "upload" | "ping">(
+    "download",
+  );
   const [copied, setCopied] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
+  const [showDetailedMetrics, setShowDetailedMetrics] = useState(false);
 
   // Auto-switch gauge view during test
   useEffect(() => {
-    if (phase === 'download') setGaugeView('download');
-    if (phase === 'upload') setGaugeView('upload');
+    if (phase === "download") setGaugeView("download");
+    if (phase === "upload") setGaugeView("upload");
   }, [phase]);
 
   const isRunning =
-    phase === 'warmup' ||
-    phase === 'ping' ||
-    phase === 'download' ||
-    phase === 'upload';
+    phase === "warmup" ||
+    phase === "ping" ||
+    phase === "download" ||
+    phase === "upload";
 
   // Determine what value to show on gauge
   let gaugeValue = 0;
   let gaugeMax = 1000;
   let gaugePhase: TestPhase = phase;
-  let gaugeLabel = '';
+  let gaugeLabel = "";
 
   if (isRunning) {
     gaugeValue = liveSpeed;
-    gaugeLabel = PHASE_LABEL[phase];
-  } else if (phase === 'complete' && result) {
-    if (gaugeView === 'download') {
+    if (phase === "download") gaugeLabel = "Download";
+    else if (phase === "upload") gaugeLabel = "Upload";
+    else if (phase === "ping") gaugeLabel = "Ping";
+    else if (phase === "warmup") gaugeLabel = "Warmup";
+  } else if (phase === "complete" && result) {
+    if (gaugeView === "download") {
       gaugeValue = result.download;
-      gaugePhase = 'download';
-      gaugeLabel = 'Download';
-    } else if (gaugeView === 'upload') {
+      gaugePhase = "download";
+      gaugeLabel = "Download";
+    } else if (gaugeView === "upload") {
       gaugeValue = result.upload;
-      gaugePhase = 'upload';
-      gaugeLabel = 'Upload';
+      gaugePhase = "upload";
+      gaugeLabel = "Upload";
     } else {
       gaugeValue = result.ping;
       gaugeMax = 200;
-      gaugePhase = 'download'; // neutral colour
-      gaugeLabel = 'Ping';
+      gaugePhase = "download"; // neutral colour
+      gaugeLabel = "Ping";
     }
   }
 
@@ -392,16 +427,16 @@ export default function SpeedTest() {
   const deviceInfo = (() => {
     const ua = navigator.userAgent;
     const mobile = /Mobi|Android/i.test(ua);
-    return mobile ? 'Mobile' : 'Desktop';
+    return mobile ? "Mobile" : "Desktop";
   })();
 
   const browserInfo = (() => {
     const ua = navigator.userAgent;
-    if (ua.includes('Firefox')) return 'Firefox';
-    if (ua.includes('Edg')) return 'Edge';
-    if (ua.includes('Chrome')) return 'Chrome';
-    if (ua.includes('Safari')) return 'Safari';
-    return 'Browser';
+    if (ua.includes("Firefox")) return "Firefox";
+    if (ua.includes("Edg")) return "Edge";
+    if (ua.includes("Chrome")) return "Chrome";
+    if (ua.includes("Safari")) return "Safari";
+    return "Browser";
   })();
 
   return (
@@ -423,7 +458,6 @@ export default function SpeedTest() {
 
       <main className="relative z-10 px-4 pb-24 pt-28">
         <div className="mx-auto max-w-3xl">
-
           {/* ── Hero heading ──────────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -451,10 +485,9 @@ export default function SpeedTest() {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-indigo-500/3 via-transparent to-transparent" />
 
             <div className="relative p-6 sm:p-8">
-
               {/* ── Gauge view tabs (visible after complete) ───────────── */}
               <AnimatePresence>
-                {phase === 'complete' && result && (
+                {phase === "complete" && result && (
                   <motion.div
                     initial={{ opacity: 0, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -462,22 +495,22 @@ export default function SpeedTest() {
                     className="mb-4 flex items-center justify-center gap-1"
                   >
                     <GaugeTab
-                      active={gaugeView === 'download'}
+                      active={gaugeView === "download"}
                       label="Download"
                       value={fmtSpeed(result.download)}
-                      onClick={() => setGaugeView('download')}
+                      onClick={() => setGaugeView("download")}
                     />
                     <GaugeTab
-                      active={gaugeView === 'upload'}
+                      active={gaugeView === "upload"}
                       label="Upload"
                       value={fmtSpeed(result.upload)}
-                      onClick={() => setGaugeView('upload')}
+                      onClick={() => setGaugeView("upload")}
                     />
                     <GaugeTab
-                      active={gaugeView === 'ping'}
+                      active={gaugeView === "ping"}
                       label="Ping"
                       value={`${result.ping} ms`}
-                      onClick={() => setGaugeView('ping')}
+                      onClick={() => setGaugeView("ping")}
                     />
                   </motion.div>
                 )}
@@ -504,12 +537,12 @@ export default function SpeedTest() {
                       : gaugeValue >= 100
                         ? Math.round(gaugeValue).toString()
                         : gaugeValue === 0
-                          ? '0'
+                          ? "0"
                           : gaugeValue.toFixed(1)}
                   </motion.span>
                   <div className="flex items-baseline gap-2 mt-1">
                     <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                      {gaugeValue >= 1000 ? 'Gbps' : 'Mbps'}
+                      {gaugeValue >= 1000 ? "Gbps" : "Mbps"}
                     </span>
                     {gaugeLabel && (
                       <span className="text-xs font-medium text-muted-foreground/60 uppercase tracking-wider">
@@ -550,7 +583,7 @@ export default function SpeedTest() {
 
               {/* ── Live mini-metrics during test ──────────────────────── */}
               <AnimatePresence>
-                {isRunning && phase === 'ping' && (
+                {isRunning && phase === "ping" && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -567,7 +600,7 @@ export default function SpeedTest() {
 
               {/* ── Error message ──────────────────────────────────────── */}
               <AnimatePresence>
-                {phase === 'error' && error && (
+                {phase === "error" && error && (
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -594,20 +627,20 @@ export default function SpeedTest() {
                     aria-label="Start speed test"
                   >
                     <span className="relative z-10 flex items-center gap-2">
-                      {phase === 'complete' || phase === 'error' ? (
+                      {phase === "complete" || phase === "error" ? (
                         <>
                           <RefreshCw className="h-4 w-4" /> Retest
                         </>
                       ) : (
                         <>
-                          <Activity className="h-4 w-4" /> Start Test
+                          <Rocket className="h-4 w-4" /> Start Test
                         </>
                       )}
                     </span>
                     <motion.div
                       className="absolute inset-0 bg-white/20"
-                      initial={{ x: '-100%', skewX: -15 }}
-                      whileHover={{ x: '200%' }}
+                      initial={{ x: "-100%", skewX: -15 }}
+                      whileHover={{ x: "200%" }}
                       transition={{ duration: 0.5 }}
                     />
                   </motion.button>
@@ -635,7 +668,8 @@ export default function SpeedTest() {
                 </span>
                 {result?.connectionType && (
                   <span className="flex items-center gap-1">
-                    <Wifi className="h-3 w-3" /> {result.connectionType.toUpperCase()}
+                    <Wifi className="h-3 w-3" />{" "}
+                    {result.connectionType.toUpperCase()}
                   </span>
                 )}
               </div>
@@ -644,7 +678,7 @@ export default function SpeedTest() {
 
           {/* ── Results dashboard ─────────────────────────────────────── */}
           <AnimatePresence>
-            {phase === 'complete' && result && (
+            {phase === "complete" && result && (
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -669,7 +703,8 @@ export default function SpeedTest() {
                     >
                       {copied ? (
                         <>
-                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" /> Copied
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />{" "}
+                          Copied
                         </>
                       ) : (
                         <>
@@ -680,113 +715,160 @@ export default function SpeedTest() {
                   </div>
                 </div>
 
-                {/* Metric cards grid */}
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  <MetricCard
-                    icon={Download}
-                    label="Download"
-                    value={result.download >= 1000 ? (result.download / 1000).toFixed(2) : result.download.toFixed(1)}
-                    unit={result.download >= 1000 ? 'Gbps' : 'Mbps'}
-                    color="bg-indigo-500/12 text-indigo-400"
-                    delay={0}
-                  />
-                  <MetricCard
-                    icon={Upload}
-                    label="Upload"
-                    value={result.upload >= 1000 ? (result.upload / 1000).toFixed(2) : result.upload.toFixed(1)}
-                    unit={result.upload >= 1000 ? 'Gbps' : 'Mbps'}
-                    color="bg-emerald-500/12 text-emerald-400"
-                    delay={0.05}
-                  />
-                  <MetricCard
-                    icon={Wifi}
-                    label="Ping"
-                    value={String(result.ping)}
-                    unit="ms"
-                    color="bg-cyan-500/12 text-cyan-400"
-                    delay={0.1}
-                  />
-                  <MetricCard
-                    icon={Activity}
-                    label="Jitter"
-                    value={String(result.jitter)}
-                    unit="ms"
-                    color="bg-purple-500/12 text-purple-400"
-                    delay={0.15}
-                  />
-                  <MetricCard
-                    icon={AlertCircle}
-                    label="Packet Loss"
-                    value={String(result.packetLoss)}
-                    unit="%"
-                    color="bg-amber-500/12 text-amber-400"
-                    delay={0.2}
-                  />
-                  <MetricCard
-                    icon={BarChart3}
-                    label="Quality"
-                    value={QUALITY_CONFIG[result.quality].label}
-                    color={cn('bg-white/8', QUALITY_CONFIG[result.quality].color)}
-                    delay={0.25}
-                  />
-                </div>
-
-                {/* ── Diagnostics ─────────────────────────────────────── */}
+                {/* ── Diagnostics (Capability Check) ─────────────────────────── */}
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ delay: 0.2 }}
                   className="rounded-2xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-800/50 p-5"
                 >
                   <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
                     Capability Check
                   </h3>
                   <div className="grid grid-cols-2 gap-3">
-                    {CAPABILITIES.map(({ icon: Icon, label, requirement, check }) => {
-                      const ok = check(result);
-                      return (
-                        <div
-                          key={label}
-                          className={cn(
-                            'flex items-start gap-3 rounded-xl p-3 transition-colors',
-                            ok
-                              ? 'bg-emerald-50 dark:bg-emerald-500/10 ring-1 ring-emerald-200 dark:ring-emerald-500/20'
-                              : 'bg-slate-100 dark:bg-slate-700/30 ring-1 ring-slate-200 dark:ring-slate-700/50 opacity-60',
-                          )}
-                        >
+                    {CAPABILITIES.map(
+                      ({ icon: Icon, label, requirement, check }) => {
+                        const ok = check(result);
+                        return (
                           <div
+                            key={label}
                             className={cn(
-                              'mt-0.5 rounded-lg p-1.5',
-                              ok ? 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400' : 'bg-slate-200 dark:bg-slate-700/60 text-muted-foreground',
+                              "flex items-start gap-3 rounded-xl p-3 transition-colors",
+                              ok
+                                ? "bg-emerald-50 dark:bg-emerald-500/10 ring-1 ring-emerald-200 dark:ring-emerald-500/20"
+                                : "bg-slate-100 dark:bg-slate-700/30 ring-1 ring-slate-200 dark:ring-slate-700/50 opacity-60",
                             )}
                           >
-                            <Icon className="h-4 w-4" />
-                          </div>
-                          <div>
-                            <p
+                            <div
                               className={cn(
-                                'text-xs font-bold',
-                                ok ? 'text-foreground' : 'text-muted-foreground',
+                                "mt-0.5 rounded-lg p-1.5",
+                                ok
+                                  ? "bg-emerald-100 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                                  : "bg-slate-200 dark:bg-slate-700/60 text-muted-foreground",
                               )}
                             >
-                              {label}
-                            </p>
-                            <p className="text-[10px] text-muted-foreground mt-0.5">
-                              {requirement}
-                            </p>
+                              <Icon className="h-4 w-4" />
+                            </div>
+                            <div>
+                              <p
+                                className={cn(
+                                  "text-xs font-bold",
+                                  ok
+                                    ? "text-foreground"
+                                    : "text-muted-foreground",
+                                )}
+                              >
+                                {label}
+                              </p>
+                              <p className="text-[10px] text-muted-foreground mt-0.5">
+                                {requirement}
+                              </p>
+                            </div>
+                            <div className="ml-auto shrink-0">
+                              {ok ? (
+                                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                              ) : (
+                                <X className="h-4 w-4 text-muted-foreground/50" />
+                              )}
+                            </div>
                           </div>
-                          <div className="ml-auto shrink-0">
-                            {ok ? (
-                              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                            ) : (
-                              <X className="h-4 w-4 text-muted-foreground/50" />
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      },
+                    )}
                   </div>
                 </motion.div>
+
+                {/* ── Toggle button for detailed breakdown ─────────────────── */}
+                <div className="flex justify-center pt-2">
+                  <button
+                    onClick={() => setShowDetailedMetrics(!showDetailedMetrics)}
+                    className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider py-2.5 px-4 rounded-xl bg-slate-100/50 dark:bg-slate-800/30 hover:bg-slate-100 dark:hover:bg-slate-800/50 border border-slate-200 dark:border-slate-700/40"
+                  >
+                    {showDetailedMetrics
+                      ? "Hide Detailed Metrics"
+                      : "Show Detailed Metrics"}
+                    <ChevronDown
+                      className={cn(
+                        "h-3.5 w-3.5 transition-transform duration-200",
+                        showDetailedMetrics && "rotate-180",
+                      )}
+                    />
+                  </button>
+                </div>
+
+                {/* ── Expandable Metric Cards Grid ─────────────────────────── */}
+                <AnimatePresence initial={false}>
+                  {showDetailedMetrics && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 pt-3">
+                        <MetricCard
+                          icon={Download}
+                          label="Download"
+                          value={
+                            result.download >= 1000
+                              ? (result.download / 1000).toFixed(2)
+                              : result.download.toFixed(1)
+                          }
+                          unit={result.download >= 1000 ? "Gbps" : "Mbps"}
+                          color="bg-indigo-500/12 text-indigo-400"
+                          delay={0}
+                        />
+                        <MetricCard
+                          icon={Upload}
+                          label="Upload"
+                          value={
+                            result.upload >= 1000
+                              ? (result.upload / 1000).toFixed(2)
+                              : result.upload.toFixed(1)
+                          }
+                          unit={result.upload >= 1000 ? "Gbps" : "Mbps"}
+                          color="bg-emerald-500/12 text-emerald-400"
+                          delay={0.05}
+                        />
+                        <MetricCard
+                          icon={Wifi}
+                          label="Ping"
+                          value={String(result.ping)}
+                          unit="ms"
+                          color="bg-cyan-500/12 text-cyan-400"
+                          delay={0.1}
+                        />
+                        <MetricCard
+                          icon={Activity}
+                          label="Jitter"
+                          value={String(result.jitter)}
+                          unit="ms"
+                          color="bg-purple-500/12 text-purple-400"
+                          delay={0.15}
+                        />
+                        <MetricCard
+                          icon={AlertCircle}
+                          label="Packet Loss"
+                          value={String(result.packetLoss)}
+                          unit="%"
+                          color="bg-amber-500/12 text-amber-400"
+                          delay={0.2}
+                        />
+                        <MetricCard
+                          icon={BarChart3}
+                          label="Quality"
+                          value={QUALITY_CONFIG[result.quality].label}
+                          color={cn(
+                            "bg-white/8",
+                            QUALITY_CONFIG[result.quality].color,
+                          )}
+                          delay={0.25}
+                        />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             )}
           </AnimatePresence>
@@ -801,7 +883,7 @@ export default function SpeedTest() {
             >
               {/* Header */}
               <button
-                onClick={() => setShowHistory(v => !v)}
+                onClick={() => setShowHistory((v) => !v)}
                 className="flex w-full items-center justify-between px-5 py-4 text-sm font-bold text-foreground hover:bg-slate-100 dark:hover:bg-slate-700/40 transition-colors"
               >
                 <span className="flex items-center gap-2">
@@ -813,7 +895,7 @@ export default function SpeedTest() {
                 </span>
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={e => {
+                    onClick={(e) => {
                       e.stopPropagation();
                       exportJSON(history);
                     }}
@@ -822,7 +904,7 @@ export default function SpeedTest() {
                     JSON
                   </button>
                   <button
-                    onClick={e => {
+                    onClick={(e) => {
                       e.stopPropagation();
                       exportCSV(history);
                     }}
@@ -831,7 +913,7 @@ export default function SpeedTest() {
                     CSV
                   </button>
                   <button
-                    onClick={e => {
+                    onClick={(e) => {
                       e.stopPropagation();
                       clearHistory();
                     }}
@@ -842,8 +924,8 @@ export default function SpeedTest() {
                   </button>
                   <ChevronDown
                     className={cn(
-                      'h-4 w-4 text-muted-foreground transition-transform',
-                      showHistory && 'rotate-180',
+                      "h-4 w-4 text-muted-foreground transition-transform",
+                      showHistory && "rotate-180",
                     )}
                   />
                 </div>
@@ -854,7 +936,7 @@ export default function SpeedTest() {
                 {showHistory && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden"
@@ -890,8 +972,8 @@ export default function SpeedTest() {
             transition={{ delay: 0.4 }}
             className="mt-8 text-center text-xs text-muted-foreground"
           >
-            Tests use multiple parallel connections via Cloudflare's global network.
-            Results reflect real-world throughput from your location.
+            Tests use multiple parallel connections via Cloudflare's global
+            network. Results reflect real-world throughput from your location.
           </motion.p>
         </div>
       </main>
