@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Rocket } from "lucide-react";
+import { Rocket, MessageSquare } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { preloadCalendly } from "@/utils/calendly";
 
@@ -52,22 +52,23 @@ export const Hero = () => {
                             className="flex flex-col sm:flex-row items-center justify-center gap-8"
                         >
                             <button
-                                onClick={() => navigate("/schedule-demo")}
-                                onMouseEnter={preloadCalendly}
+                                onClick={() => navigate("/contact")}
                                 className="group relative inline-flex items-center justify-center px-10 h-16 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:scale-105 transition-all duration-500 font-bold overflow-hidden shadow-2xl"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
-                                    Start Your Journey
-                                    <Rocket className="h-5 w-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                    Share Your Needs
+                                    <MessageSquare className="h-5 w-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </button>
 
                             <button
-                                onClick={() => navigate("/products")}
+                                onClick={() => navigate("/schedule-demo")}
+                                onMouseEnter={preloadCalendly}
                                 className="group text-slate-600 dark:text-slate-400 font-bold flex items-center gap-2 hover:text-indigo-600 transition-colors"
                             >
-                                View Ecosystem
+                                Book Consultation
+                                <Rocket className="h-4 w-4" />
                                 <div className="w-8 h-[2px] bg-slate-200 dark:bg-slate-800 group-hover:w-12 group-hover:bg-indigo-500 transition-all" />
                             </button>
                         </div>

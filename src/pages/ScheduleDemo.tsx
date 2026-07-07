@@ -5,11 +5,15 @@ import {
   CheckCircle2,
   Clock,
   Globe,
+  MessageSquare,
   Video,
 } from "lucide-react";
 import { SEO } from "@/components/SEO";
+import { useNavigate } from "react-router-dom";
 
 export default function ScheduleDemo() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     // Check if script already exists
     const existingScript = document.querySelector('script[src*="calendly.com/assets/external/widget.js"]');
@@ -107,6 +111,22 @@ export default function ScheduleDemo() {
                   Scheduling is automatically adjusted to your local timezone.
                   Pick a slot that works best for you.
                 </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/70 dark:bg-white/[0.02] border border-white dark:border-white/10">
+                <div className="flex items-center gap-3 mb-3">
+                  <MessageSquare className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                  <span className="font-semibold text-slate-900 dark:text-slate-200">Prefer not to book a call yet?</span>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                  Share your institution's needs in our enquiry form and we’ll respond via sales@mindsync.solutions.
+                </p>
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="w-full h-11 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-semibold hover:scale-[1.01] transition-transform"
+                >
+                  Submit Your Requirements
+                </button>
               </div>
             </div>
 

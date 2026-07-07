@@ -81,21 +81,48 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email Us",
-      value: "hello@mindsync.solutions",
-      sub: "Response within 2 hours",
+      title: "Sales Enquiries",
+      value: "sales@mindsync.solutions",
+      sub: "We'll respond within 2 business hours",
       color: "text-blue-500",
       bg: "bg-blue-500/10",
       border: "group-hover:border-blue-500/50",
     },
     {
       icon: Phone,
-      title: "Call Us",
-      value: "+233 5436 13605, +234 9044 848 699",
-      sub: "Mon-Fri, 9am-6pm EST",
+      title: "Ghana (Call)",
+      value: "+233 543 613 605",
+      sub: "Primary regional line",
       color: "text-emerald-500",
       bg: "bg-emerald-500/10",
       border: "group-hover:border-emerald-500/50",
+    },
+    {
+      icon: MessageSquare,
+      title: "Ghana (WhatsApp)",
+      value: "+233 505 061 692",
+      sub: "WhatsApp enquiries",
+      color: "text-green-500",
+      bg: "bg-green-500/10",
+      border: "group-hover:border-green-500/50",
+    },
+    {
+      icon: Phone,
+      title: "Nigeria",
+      value: "+234 904 484 8699",
+      sub: "Regional contact line",
+      color: "text-violet-500",
+      bg: "bg-violet-500/10",
+      border: "group-hover:border-violet-500/50",
+    },
+    {
+      icon: Phone,
+      title: "Australia",
+      value: "+61 430 003 953",
+      sub: "Regional contact line",
+      color: "text-amber-500",
+      bg: "bg-amber-500/10",
+      border: "group-hover:border-amber-500/50",
     },
   ];
 
@@ -107,8 +134,34 @@ export default function Contact() {
     "mainEntity": {
       "@type": "Organization",
       "name": "MindSync Solutions",
-      "email": "hello@mindsync.solutions",
-      "telephone": "+233 5436 13605"
+      "email": "sales@mindsync.solutions",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "sales@mindsync.solutions",
+          "telephone": "+233543613605",
+          "areaServed": "GH"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "WhatsApp",
+          "telephone": "+233505061692",
+          "areaServed": "GH"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+2349044848699",
+          "areaServed": "NG"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+61430003953",
+          "areaServed": "AU"
+        }
+      ]
     }
   };
 
@@ -176,14 +229,23 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold mb-4">Ready for a Demo?</h3>
                 <p className="text-indigo-100 mb-6">
                   See exactly how our platform can streamline your operations.
-                  Schedule a personalized walkthrough with our experts.
+                  Book a personalized walkthrough with our team, or submit your needs first.
                 </p>
-                <Button
-                  onClick={() => (window.location.href = "/schedule-demo")}
-                  className="bg-white text-indigo-600 hover:bg-indigo-50 border-none w-full sm:w-auto"
-                >
-                  Schedule Demo
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={() => (window.location.href = "/schedule-demo")}
+                    className="bg-white text-indigo-600 hover:bg-indigo-50 border-none w-full sm:w-auto"
+                  >
+                    Schedule Demo
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => setFormData((prev) => ({ ...prev, message: prev.message || "Our institution is looking for..." }))}
+                    className="border-white/40 text-white hover:bg-white/10 w-full sm:w-auto"
+                  >
+                    Share Requirements
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
