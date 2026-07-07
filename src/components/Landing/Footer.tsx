@@ -30,22 +30,21 @@ export default function Footer() {
               © {new Date().getFullYear()} MindSync Solutions
             </span>
             </div>
-            <div className="text-[10px] font-semibold tracking-wide text-slate-500 dark:text-slate-400 text-center md:text-left space-y-1">
+            <div className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 text-center md:text-left space-y-1">
               <p>
                 Enquiries: <a href="mailto:sales@mindsync.solutions" className="hover:text-indigo-600 transition-colors">sales@mindsync.solutions</a>
               </p>
-              <p>GH: +233 543 613 605 (Call), +233 505 061 692 (WhatsApp)</p>
-              <p>NG: +234 904 484 8699 · AU: +61 430 003 953</p>
+              <p>AU: +61 430 003 953 · NG: +234 904 484 8699</p>
+              <p>GH: +233 543 613 605 (Call) · +233 505 061 692 (WhatsApp)</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 md:gap-x-8">
+          <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2 md:gap-x-6">
             <a href="/products" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Ecosystem</a>
             <a href="/speed" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Speed Test</a>
             <a href="https://blog.mindsync.solutions" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Blog</a>
             <a href="https://policies.mindsync.solutions/privacy" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Privacy</a>
             <a href="https://policies.mindsync.solutions/terms" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Terms</a>
-            <a href="mailto:sales@mindsync.solutions" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Enquiries</a>
           </div>
 
           <div className="flex items-center gap-4">
