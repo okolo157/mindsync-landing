@@ -43,9 +43,7 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/tx7hvn7qumgog2mq5yknrbnwtqlv7325";
-
-      const response = await fetch(MAKE_WEBHOOK_URL, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +56,10 @@ export default function Contact() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to send message to the server.");
+        const errorResponse = await response.json().catch(() => null);
+        throw new Error(
+          errorResponse?.error || "Failed to send message to the server."
+        );
       }
 
       setIsSubmitted(true);
@@ -70,9 +71,13 @@ export default function Contact() {
         role: "",
         message: "",
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error submitting contact form:", error);
-      toast.error(error.message || "Failed to send message. Please try again.");
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again.";
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
