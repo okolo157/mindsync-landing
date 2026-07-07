@@ -12,7 +12,7 @@ export const Hero = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prev) => (prev + 1) % words.length);
-        }, 3000);
+        }, 6000);
         return () => clearInterval(timer);
     }, []);
 
@@ -22,7 +22,7 @@ export const Hero = () => {
                 <div className="flex flex-col items-center w-full">
                     <div className="text-center w-full">
                         <h1
-                            className="text-[3.25rem] sm:text-8xl lg:text-[9rem] font-black tracking-tight mb-8 leading-[0.9] text-slate-900 dark:text-white"
+                            className="text-[4.25rem] sm:text-8xl lg:text-[9.25rem] font-black tracking-tight mb-8 leading-[0.9] text-slate-900 dark:text-white"
                         >
                             Infinite
                             <span className="block relative h-[1.1em] overflow-hidden">
