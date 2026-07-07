@@ -56,7 +56,7 @@ export const Hero = () => {
                                 className="group relative inline-flex items-center justify-center px-10 h-16 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:scale-105 transition-all duration-500 font-bold overflow-hidden shadow-2xl"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
-                                    Share Your Needs
+                                    Make Enquiry
                                     <MessageSquare className="h-5 w-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />

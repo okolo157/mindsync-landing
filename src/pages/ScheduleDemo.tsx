@@ -125,7 +125,7 @@ export default function ScheduleDemo() {
                   onClick={() => navigate("/contact")}
                   className="w-full h-11 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-semibold hover:scale-[1.01] transition-transform"
                 >
-                  Submit Your Requirements
+                  Make Enquiry
                 </button>
               </div>
             </div>

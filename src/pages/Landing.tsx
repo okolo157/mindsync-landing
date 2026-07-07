@@ -65,7 +65,7 @@ const Landing: React.FC = () => {
                   onClick={() => navigate("/contact")}
                   className="px-12 h-16 rounded-full bg-white text-slate-950 font-black text-lg hover:scale-105 transition-all shadow-2xl"
                 >
-                  Share Your Needs
+                  Make Enquiry
                 </button>
                 <button
                   onClick={() => navigate("/schedule-demo")}
