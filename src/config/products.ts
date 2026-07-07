@@ -106,7 +106,7 @@ export const PRODUCTS: Product[] = [
     name: "TutorSmart",
     tagline: "Expert Tutors",
     description:
-      "The world's most secure one-to-one tutoring platform, powered by registered teachers.",
+      "A trusted one-to-one tutoring platform, powered by registered teachers.",
     longDescription:
       "TutorSmart connects students with the highest caliber of educators across Australia. Every tutor is a verified, registered professional subject to rigorous background checks, providing one-to-one instruction with no lock-in contracts.",
     link: "https://tutorsmart.mindsync.solutions",
