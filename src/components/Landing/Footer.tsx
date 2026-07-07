@@ -13,7 +13,8 @@ export default function Footer() {
     <footer className="bg-white dark:bg-[#030712] border-t border-slate-100 dark:border-white/5 py-12 text-slate-500 dark:text-slate-400">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
             <img
               src={logoLight}
               alt="Mindsync Logo"
@@ -28,6 +29,14 @@ export default function Footer() {
             <span className="text-[10px] font-bold uppercase tracking-widest opacity-60">
               © {new Date().getFullYear()} MindSync Solutions
             </span>
+            </div>
+            <div className="text-[10px] font-semibold tracking-wide text-slate-500 dark:text-slate-400 text-center md:text-left space-y-1">
+              <p>
+                Enquiries: <a href="mailto:sales@mindsync.solutions" className="hover:text-indigo-600 transition-colors">sales@mindsync.solutions</a>
+              </p>
+              <p>GH: +233 543 613 605 (Call), +233 505 061 692 (WhatsApp)</p>
+              <p>NG: +234 904 484 8699 · AU: +61 430 003 953</p>
+            </div>
           </div>
 
           <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 md:gap-x-8">
@@ -36,7 +45,7 @@ export default function Footer() {
             <a href="https://blog.mindsync.solutions" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Blog</a>
             <a href="https://policies.mindsync.solutions/privacy" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Privacy</a>
             <a href="https://policies.mindsync.solutions/terms" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Terms</a>
-            <a href="mailto:hello@mindsync.solutions" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Support</a>
+            <a href="mailto:sales@mindsync.solutions" className="text-[10px] font-bold uppercase tracking-widest hover:text-indigo-600 transition-colors">Enquiries</a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -73,4 +82,3 @@ export default function Footer() {
     </footer>
   );
 }
-

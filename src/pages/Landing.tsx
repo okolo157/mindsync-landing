@@ -65,13 +65,13 @@ const Landing: React.FC = () => {
                   onClick={() => navigate("/contact")}
                   className="px-12 h-16 rounded-full bg-white text-slate-950 font-black text-lg hover:scale-105 transition-all shadow-2xl"
                 >
-                  Get Started
+                  Make Enquiry
                 </button>
                 <button
                   onClick={() => navigate("/schedule-demo")}
                   className="px-12 h-16 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-all backdrop-blur-md"
                 >
-                  Consult an Expert
+                  Book Consultation
                 </button>
               </div>
             </div>

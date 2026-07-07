@@ -48,3 +48,13 @@ export default tseslint.config({
   },
 })
 ```
+
+## Contact form email delivery (SendGrid)
+
+Configure these environment variables in your deployment platform (for example, Vercel):
+
+- `SENDGRID_API_KEY` - SendGrid API key with mail send access
+- `SENDGRID_FROM_EMAIL` - sender address (default: `noreply@mindsync.solutions`)
+- `SENDGRID_TO_EMAIL` - recipient address (default: `hello@mindsync.solutions`)
+
+The contact form submits to `/api/contact`, which relays the message through SendGrid.
