@@ -4,6 +4,7 @@ import Navbar from "@/components/Landing/Navbar";
 import Footer from "@/components/Landing/Footer";
 import { AdvantageSection } from "@/components/Landing/AdvantageSection";
 import { ProductShowcase } from "@/components/Landing/ProductShowcase";
+import { DataConcert } from "@/components/Landing/DataConcert";
 import { Hero } from "@/components/Landing/Hero";
 import { SEO } from "@/components/SEO";
 import { StructuredData } from "@/components/StructuredData";
@@ -38,6 +39,8 @@ const Landing: React.FC = () => {
 
       <Hero />
 
+      <DataConcert />
+
       <ProductShowcase />
 
       <AdvantageSection />
@@ -60,7 +63,7 @@ const Landing: React.FC = () => {
                 institution's digital transformation.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                 <button
                   onClick={() => navigate("/contact")}
                   className="px-12 h-16 rounded-full bg-white text-slate-950 font-black text-lg hover:scale-105 transition-all shadow-2xl"
@@ -69,9 +72,10 @@ const Landing: React.FC = () => {
                 </button>
                 <button
                   onClick={() => navigate("/schedule-demo")}
-                  className="px-12 h-16 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-all backdrop-blur-md"
+                  className="group text-indigo-200 hover:text-white font-bold flex items-center gap-2 transition-colors text-lg"
                 >
                   Book Consultation
+                  <div className="w-8 h-[2px] bg-indigo-200/30 group-hover:w-12 group-hover:bg-white transition-all" />
                 </button>
               </div>
             </div>

@@ -20,8 +20,9 @@ const validatePayload = (payload) => {
   }
 
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!isValidEmail) {
-    return { error: "Please provide a valid email address." };
+  const isValidPhone = /^\+?[0-9\s\-()]{7,20}$/.test(email);
+  if (!isValidEmail && !isValidPhone) {
+    return { error: "Please provide a valid email address or phone number." };
   }
 
   return {
@@ -67,11 +68,14 @@ export default async function handler(req, res) {
 
   const payload = payloadValidation.data;
 
+  const isPhonePayload = /^\+?[0-9\s\-()]{7,20}$/.test(payload.email);
+  const contactLabel = isPhonePayload ? "Phone" : "Email";
+
   const emailBodyText = [
     "New contact enquiry from MindSync Solutions website",
     "",
     `Name: ${payload.name}`,
-    `Email: ${payload.email}`,
+    `${contactLabel}: ${payload.email}`,
     `Organization: ${payload.organization}`,
     `Role: ${payload.role}`,
     `Source: ${payload.source}`,
@@ -84,7 +88,7 @@ export default async function handler(req, res) {
   const emailBodyHtml = `
     <h2>New contact enquiry from MindSync Solutions website</h2>
     <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
-    <p><strong>Email:</strong> ${escapeHtml(payload.email)}</p>
+    <p><strong>${contactLabel}:</strong> ${escapeHtml(payload.email)}</p>
     <p><strong>Organization:</strong> ${escapeHtml(payload.organization)}</p>
     <p><strong>Role:</strong> ${escapeHtml(payload.role)}</p>
     <p><strong>Source:</strong> ${escapeHtml(payload.source)}</p>
@@ -92,6 +96,8 @@ export default async function handler(req, res) {
     <p><strong>Message:</strong></p>
     <p>${escapeHtml(payload.message).replaceAll("\n", "<br />")}</p>
   `;
+
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
 
   const sendGridResponse = await fetch("https://api.sendgrid.com/v3/mail/send", {
     method: "POST",
@@ -102,7 +108,7 @@ export default async function handler(req, res) {
     body: JSON.stringify({
       personalizations: [{ to: [{ email: toEmail }] }],
       from: { email: fromEmail, name: "MindSync Solutions" },
-      reply_to: { email: payload.email, name: payload.name },
+      ...(isValidEmail ? { reply_to: { email: payload.email, name: payload.name } } : {}),
       subject: `New Contact Enquiry - ${payload.organization}`,
       content: [
         { type: "text/plain", value: emailBodyText },

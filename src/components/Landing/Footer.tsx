@@ -105,6 +105,13 @@ export default function Footer() {
             <p className="text-sm">
               Follow us for product updates, insights, and education technology news.
             </p>
+            <div className="pt-4 text-xs text-slate-400 dark:text-slate-500 leading-relaxed border-t border-slate-100 dark:border-white/5 space-y-0.5">
+              <p className="font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-[9px] mb-1">🇦🇺 Australia Office</p>
+              <p>Ground Floor</p>
+              <p>Shop 1</p>
+              <p>799 Pacific Hwy Chatswood 2067</p>
+              <p>NSW  Australia</p>
+            </div>
           </div>
         </div>
 

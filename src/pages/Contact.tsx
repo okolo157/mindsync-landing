@@ -12,10 +12,22 @@ import {
   MessageSquare,
   Building2,
   User,
+  Users,
   CheckCircle,
   Loader2,
+  GraduationCap,
+  Layout,
+  Trophy,
+  BookOpen,
+  Code,
+  HelpCircle,
+  ChevronLeft,
+  ChevronRight,
+  Zap,
+  Share2,
+  Bot,
 } from "lucide-react";
-
+import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { SEO } from "@/components/SEO";
 import { StructuredData } from "@/components/StructuredData";
@@ -30,6 +42,11 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [step, setStep] = useState(1);
+  const [selectedGoal, setSelectedGoal] = useState("");
+
+  const isPhoneInput = /^[0-9+\s\-()]*$/.test(formData.email) && formData.email.trim().length > 0;
+  const ContactIcon = isPhoneInput ? Phone : Mail;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -71,6 +88,8 @@ export default function Contact() {
         role: "",
         message: "",
       });
+      setStep(1);
+      setSelectedGoal("");
     } catch (error: unknown) {
       console.error("Error submitting contact form:", error);
       const message =
@@ -200,10 +219,391 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
-          <div
-            className="space-y-6"
-          >
+        <div className="max-w-2xl mx-auto mb-24 relative z-10">
+          <div className="p-8 md:p-12 rounded-[3.5rem] border border-white dark:border-white/10 bg-white/60 dark:bg-white/[0.02] backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            {isSubmitted ? (
+              <div className="text-center py-8">
+                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
+                <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
+                  Message Sent!
+                </h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">
+                  Thank you for reaching out. We'll respond within 2 business hours.
+                </p>
+                <Button
+                  onClick={() => setIsSubmitted(false)}
+                  variant="outline"
+                >
+                  Send Another Message
+                </Button>
+              </div>
+            ) : (
+              <>
+                <div className="mb-6">
+                  <div className="flex justify-between text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">
+                    <span>Step {step} of 4</span>
+                    <span>
+                      {step === 1 && "Select Goal"}
+                      {step === 2 && "Contact Details"}
+                      {step === 3 && "Organization Info"}
+                      {step === 4 && "Message"}
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-200 dark:bg-white/5 h-1.5 rounded-full overflow-hidden">
+                    <div
+                      className="bg-indigo-600 dark:bg-indigo-500 h-full transition-all duration-300"
+                      style={{ width: `${(step / 4) * 100}%` }}
+                    />
+                  </div>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <AnimatePresence mode="wait">
+                    {step === 1 && (
+                      <motion.div
+                        key="step-1"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="space-y-4"
+                      >
+                        <h3 className="text-xl font-bold text-[#0F172A] dark:text-white mb-2">
+                          What can we help you with?
+                        </h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {[
+                              { id: "sims", label: "MindSync SIMS", desc: "School Management System", icon: GraduationCap },
+                              { id: "lms", label: "MindSync LMS", desc: "Learning System & coursework", icon: Layout },
+                              { id: "coach", label: "MindSync Coach", desc: "AI classroom suite & lesson plans", icon: BookOpen },
+                              { id: "sport", label: "MindSync Sport", desc: "Athletic operations & meets", icon: Trophy },
+                              { id: "tutorsmart", label: "TutorSmart", desc: "One-to-one professional tutoring", icon: Users },
+                              { id: "coursify", label: "Coursify", desc: "Convert files & videos to courses", icon: Zap },
+                              { id: "magazine", label: "MindSync Magazine", desc: "Parent newsletters & calendars", icon: Share2 },
+                              { id: "jobs", label: "MindSync Jobs", desc: "Substitute teacher staffing", icon: Bot },
+                              { id: "custom", label: "Custom Integration", desc: "Connect data to custom systems", icon: Code },
+                              { id: "general", label: "General Enquiry", desc: "Other questions or support", icon: HelpCircle },
+                            ].map((item) => {
+                              const Icon = item.icon;
+                              const isSelected = selectedGoal === item.id;
+                              return (
+                                <button
+                                  key={item.id}
+                                  type="button"
+                                  onClick={() => {
+                                    setSelectedGoal(item.id);
+                                    let templateText = "";
+                                    if (item.id === "sims") templateText = "I'm looking to implement MindSync SIMS for our school. ";
+                                    if (item.id === "lms") templateText = "I'm looking to set up MindSync LMS for our institution. ";
+                                    if (item.id === "coach") templateText = "I'm interested in implementing MindSync Coach for lesson planning, grading rubrics, and classroom bots. ";
+                                    if (item.id === "sport") templateText = "I'm interested in setting up MindSync Sport for athletic operations, meets, and brackets. ";
+                                    if (item.id === "tutorsmart") templateText = "I'd like to learn more about TutorSmart tutoring solutions for our students. ";
+                                    if (item.id === "coursify") templateText = "I'm interested in using Coursify to convert static materials into LMS-compatible courses. ";
+                                    if (item.id === "magazine") templateText = "I'd like details on setting up MindSync Magazine for parent communications and newsletters. ";
+                                    if (item.id === "jobs") templateText = "We are looking to implement MindSync Jobs to streamline our relief staffing and substitute recruitment. ";
+                                    if (item.id === "custom") templateText = "We need assistance with connecting our data or building custom integrations. ";
+                                    setFormData(prev => ({ ...prev, message: templateText }));
+                                    setTimeout(() => setStep(2), 250);
+                                  }}
+                                  className={`flex items-start gap-3.5 p-3.5 rounded-2xl border text-left transition-all duration-200 hover:scale-[1.01] w-full ${
+                                    isSelected
+                                      ? "border-indigo-600 bg-indigo-50/40 dark:border-indigo-500 dark:bg-indigo-500/10"
+                                      : "border-white dark:border-white/5 bg-white/60 dark:bg-white/[0.02] hover:bg-white/80 dark:hover:bg-white/[0.05]"
+                                  }`}
+                                >
+                                <div className={`p-2.5 rounded-xl ${
+                                  isSelected 
+                                    ? "bg-indigo-600 text-white dark:bg-indigo-500" 
+                                    : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                                }`}>
+                                  <Icon className="w-5 h-5" />
+                                </div>
+                                <div>
+                                  <h4 className="font-bold text-[#0F172A] dark:text-white text-sm">{item.label}</h4>
+                                  <p className="text-xs text-slate-500 dark:text-slate-400">{item.desc}</p>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {step === 2 && (
+                      <motion.div
+                        key="step-2"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="space-y-4"
+                      >
+                        <h3 className="text-xl font-bold text-[#0F172A] dark:text-white">
+                          Who should we contact?
+                        </h3>
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="name" className="text-slate-700 dark:text-slate-300 font-semibold">
+                              Full Name
+                            </Label>
+                            <div className="relative">
+                              <User className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
+                              <Input
+                                id="name"
+                                name="name"
+                                placeholder="John Doe"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                                disabled={isSubmitting}
+                                enableUppercaseDisplay={false}
+                                className="pl-10 bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 font-medium"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <Label htmlFor="email" className="text-slate-700 dark:text-slate-300 font-semibold">
+                              Email or Phone Number
+                            </Label>
+                            <div className="relative">
+                              <ContactIcon className="absolute left-3 top-3 h-5 w-5 text-slate-400 transition-all duration-300" />
+                              <Input
+                                id="email"
+                                name="email"
+                                type="text"
+                                placeholder="john@school.edu or +61 400 000 000"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                                disabled={isSubmitting}
+                                enableUppercaseDisplay={false}
+                                className="pl-10 bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 font-medium"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-3 pt-4">
+                          <Button
+                            type="button"
+                            onClick={() => setStep(1)}
+                            variant="outline"
+                            className="flex-1 h-12 rounded-xl text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10"
+                          >
+                            <ChevronLeft className="w-4 h-4 mr-1" /> Back
+                          </Button>
+                          <Button
+                            type="button"
+                            disabled={
+                              !formData.name.trim() ||
+                              !formData.email.trim() ||
+                              !(formData.email.includes("@") || /^\+?[0-9\s\-()]{7,20}$/.test(formData.email.trim()))
+                            }
+                            onClick={() => setStep(3)}
+                            className="flex-1 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl"
+                          >
+                            Next <ChevronRight className="w-4 h-4 ml-1" />
+                          </Button>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {step === 3 && (
+                      <motion.div
+                        key="step-3"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="space-y-4"
+                      >
+                        <h3 className="text-xl font-bold text-[#0F172A] dark:text-white">
+                          Tell us about your institution
+                        </h3>
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <div className="flex justify-between items-center">
+                              <Label htmlFor="organization" className="text-slate-700 dark:text-slate-300 font-semibold">
+                                Organization / School Name
+                              </Label>
+                              <button
+                                type="button"
+                                onClick={() => setFormData(prev => ({ ...prev, organization: "Anonymous" }))}
+                                className="text-xs text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-bold transition-all hover:underline"
+                              >
+                                Keep Anonymous
+                              </button>
+                            </div>
+                            <div className="relative">
+                              <Building2 className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
+                              <Input
+                                id="organization"
+                                name="organization"
+                                placeholder="School Name"
+                                value={formData.organization}
+                                onChange={handleChange}
+                                required
+                                disabled={isSubmitting}
+                                enableUppercaseDisplay={false}
+                                className="pl-10 bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 font-medium"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <Label htmlFor="role" className="text-slate-700 dark:text-slate-300 font-semibold">
+                              Your Role
+                            </Label>
+                            <Input
+                              id="role"
+                              name="role"
+                              placeholder="Principal, Admin, Teacher, etc."
+                              value={formData.role}
+                              onChange={handleChange}
+                              required
+                              disabled={isSubmitting}
+                              enableUppercaseDisplay={false}
+                              className="bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 font-medium mb-2"
+                            />
+                            
+                            <div className="flex flex-wrap gap-2 pt-1">
+                              {["Principal", "Administrator", "IT Director", "Teacher", "Other"].map((roleOption) => (
+                                <button
+                                  key={roleOption}
+                                  type="button"
+                                  onClick={() => setFormData(prev => ({ ...prev, role: roleOption }))}
+                                  className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+                                    formData.role === roleOption
+                                      ? "bg-indigo-600 text-white border-indigo-600 dark:bg-indigo-500 dark:border-indigo-500"
+                                      : "bg-slate-50 border-slate-200 text-slate-600 dark:bg-white/5 dark:border-white/10 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10"
+                                  }`}
+                                >
+                                  {roleOption}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-3 pt-4">
+                          <Button
+                            type="button"
+                            onClick={() => setStep(2)}
+                            variant="outline"
+                            className="flex-1 h-12 rounded-xl text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10"
+                          >
+                            <ChevronLeft className="w-4 h-4 mr-1" /> Back
+                          </Button>
+                          <Button
+                            type="button"
+                            disabled={!formData.organization.trim() || !formData.role.trim()}
+                            onClick={() => setStep(4)}
+                            className="flex-1 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl"
+                          >
+                            Next <ChevronRight className="w-4 h-4 ml-1" />
+                          </Button>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {step === 4 && (
+                      <motion.div
+                        key="step-4"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="space-y-4"
+                      >
+                        <div>
+                          <h3 className="text-xl font-bold text-[#0F172A] dark:text-white mb-1">
+                            Tell us a bit more or let us reach out
+                          </h3>
+                          <p className="text-xs text-slate-500 dark:text-slate-400">
+                            Provide details or select the quick contact option below.
+                          </p>
+                        </div>
+                        
+                        <div className="flex gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setFormData(prev => ({ ...prev, message: "No message, please just reach out to me directly." }))}
+                            className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                              formData.message === "No message, please just reach out to me directly."
+                                ? "bg-indigo-600 text-white border-indigo-600 dark:bg-indigo-500 dark:border-indigo-500"
+                                : "bg-slate-50 border-slate-200 text-slate-600 dark:bg-white/5 dark:border-white/10 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10"
+                            }`}
+                          >
+                            Just contact me (no message)
+                          </button>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="message" className="text-slate-700 dark:text-slate-300 font-semibold">
+                            Message / Requirements
+                          </Label>
+                          <Textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us about your requirements..."
+                            rows={5}
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
+                            disabled={isSubmitting}
+                            enableUppercaseDisplay={false}
+                            className="bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 resize-none font-medium"
+                          />
+                        </div>
+
+                        <div className="flex gap-3 pt-4">
+                          <Button
+                            type="button"
+                            onClick={() => setStep(3)}
+                            variant="outline"
+                            className="flex-1 h-12 rounded-xl text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10"
+                            disabled={isSubmitting}
+                          >
+                            <ChevronLeft className="w-4 h-4 mr-1" /> Back
+                          </Button>
+                          <Button
+                            type="submit"
+                            disabled={isSubmitting || !formData.message.trim()}
+                            className="flex-1 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-lg shadow-indigo-500/20 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
+                          >
+                            {isSubmitting ? (
+                              <>
+                                <Loader2 className="h-5 w-5 animate-spin" />
+                                Sending...
+                              </>
+                            ) : (
+                              <>
+                                Submit <Send className="h-4 w-4" />
+                              </>
+                            )}
+                          </Button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto border-t border-slate-200 dark:border-white/5 pt-16 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-3">
+              Direct Contact Channels
+            </h2>
+            <p className="text-slate-500 dark:text-slate-400 font-medium">
+              Want to skip the form? Reach out directly via our regional lines.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {contactInfo.map((info, index) => (
               <div
                 key={index}
@@ -227,194 +627,6 @@ export default function Contact() {
                 </div>
               </div>
             ))}
-
-            <div className="p-8 rounded-[2.5rem] bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-xl mt-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4">Ready for a Demo?</h3>
-                <p className="text-indigo-100 mb-6">
-                  See exactly how our platform can streamline your operations.
-                  Book a personalized walkthrough with our team, or submit your needs first.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button
-                    onClick={() => (window.location.href = "/schedule-demo")}
-                    className="bg-white text-indigo-600 hover:bg-indigo-50 border-none w-full sm:w-auto"
-                  >
-                    Schedule Demo
-                  </Button>
-                  <Button
-                    variant="outline"
-                    onClick={() => setFormData((prev) => ({ ...prev, message: prev.message || "Our institution is looking for..." }))}
-                    className="border-white/40 text-white hover:bg-white/10 w-full sm:w-auto"
-                  >
-                    Share Requirements
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="p-8 rounded-[3.5rem] border border-white dark:border-white/10 bg-white/60 dark:bg-white/[0.02] backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-              {isSubmitted ? (
-                <div className="text-center py-8">
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-                  <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
-                    Message Sent!
-                  </h2>
-                  <p className="text-slate-600 dark:text-slate-400 mb-6">
-                    Thank you for reaching out. We'll respond within 2 business hours.
-                  </p>
-                  <Button
-                    onClick={() => setIsSubmitted(false)}
-                    variant="outline"
-                  >
-                    Send Another Message
-                  </Button>
-                </div>
-              ) : (
-                <>
-                  <h2 className="text-2xl font-bold mb-6 text-[#0F172A] dark:text-white flex items-center gap-2">
-                    <MessageSquare className="text-indigo-500" />
-                    Send us a Message
-                  </h2>
-
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label
-                          htmlFor="name"
-                          className="text-[#0F172A] font-semibold dark:text-slate-300"
-                        >
-                          Full Name
-                        </Label>
-                        <div className="relative">
-                          <User className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
-                          <Input
-                            id="name"
-                            name="name"
-                            placeholder="John Doe"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            disabled={isSubmitting}
-                            enableUppercaseDisplay={false}
-                            className="pl-10 bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label
-                          htmlFor="email"
-                          className="text-slate-700 dark:text-slate-300"
-                        >
-                          Work Email
-                        </Label>
-                        <div className="relative">
-                          <Mail className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder="john@school.edu"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            disabled={isSubmitting}
-                            enableUppercaseDisplay={false}
-                            className="pl-10 bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label
-                          htmlFor="organization"
-                          className="text-slate-700 dark:text-slate-300"
-                        >
-                          Organization
-                        </Label>
-                        <div className="relative">
-                          <Building2 className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
-                          <Input
-                            id="organization"
-                            name="organization"
-                            placeholder="School Name"
-                            value={formData.organization}
-                            onChange={handleChange}
-                            required
-                            disabled={isSubmitting}
-                            enableUppercaseDisplay={false}
-                            className="pl-10 bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label
-                          htmlFor="role"
-                          className="text-slate-700 dark:text-slate-300"
-                        >
-                          Role
-                        </Label>
-                        <Input
-                          id="role"
-                          name="role"
-                          placeholder="Principal, Admin, etc."
-                          value={formData.role}
-                          onChange={handleChange}
-                          required
-                          disabled={isSubmitting}
-                          enableUppercaseDisplay={false}
-                          className="bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="message"
-                        className="text-slate-700 dark:text-slate-300"
-                      >
-                        Message
-                      </Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell us about your requirements..."
-                        rows={5}
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        disabled={isSubmitting}
-                        enableUppercaseDisplay={false}
-                        className="bg-white/60 dark:bg-white/5 border-white dark:border-white/10 text-[#0F172A] dark:text-white focus:ring-indigo-500/20 focus:border-indigo-500 transition-all resize-none font-medium"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white text-lg font-medium rounded-xl shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02]"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send Message
-                          <Send className="ml-2 h-5 w-5" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </>
-              )}
-            </div>
           </div>
         </div>
       </div>
