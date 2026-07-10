@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Navbar from "@/components/Landing/Navbar";
 import Footer from "@/components/Landing/Footer";
 import { Button } from "@/components/ui/button";
@@ -44,6 +44,15 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [step, setStep] = useState(1);
   const [selectedGoal, setSelectedGoal] = useState("");
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const goToStep = (newStep: number) => {
+    setStep(newStep);
+    if (formRef.current) {
+      const top = formRef.current.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
   const isPhoneInput = /^[0-9+\s\-()]*$/.test(formData.email) && formData.email.trim().length > 0;
   const ContactIcon = isPhoneInput ? Phone : Mail;
@@ -190,7 +199,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] px-3 text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] text-slate-900 dark:text-white overflow-x-hidden selection:bg-indigo-500/30 font-sans transition-colors duration-300">
       <SEO
         title="Contact Us | MindSync Solutions"
         description="Get in touch with the MindSync Solutions team. We're here to help you revolutionize your educational ecosystem."
@@ -219,8 +228,8 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto mb-24 relative z-10">
-          <div className="p-8 md:p-12 rounded-[3.5rem] border border-white dark:border-white/10 bg-white/60 dark:bg-white/[0.02] backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div ref={formRef} className="max-w-2xl mx-auto mb-24 relative z-10 scroll-mt-24">
+          <div className="p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[2.75rem] md:rounded-[3.5rem] border border-white dark:border-white/10 bg-white/60 dark:bg-white/[0.02] backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             {isSubmitted ? (
               <div className="text-center py-8">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
@@ -303,7 +312,7 @@ export default function Contact() {
                                     if (item.id === "jobs") templateText = "We are looking to implement MindSync Jobs to streamline our relief staffing and substitute recruitment. ";
                                     if (item.id === "custom") templateText = "We need assistance with connecting our data or building custom integrations. ";
                                     setFormData(prev => ({ ...prev, message: templateText }));
-                                    setTimeout(() => setStep(2), 250);
+                                    setTimeout(() => goToStep(2), 250);
                                   }}
                                   className={`flex items-start gap-3.5 p-3.5 rounded-2xl border text-left transition-all duration-200 hover:scale-[1.01] w-full ${
                                     isSelected
@@ -387,7 +396,7 @@ export default function Contact() {
                         <div className="flex gap-3 pt-4">
                           <Button
                             type="button"
-                            onClick={() => setStep(1)}
+                            onClick={() => goToStep(1)}
                             variant="outline"
                             className="flex-1 h-12 rounded-xl text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10"
                           >
@@ -400,7 +409,7 @@ export default function Contact() {
                               !formData.email.trim() ||
                               !(formData.email.includes("@") || /^\+?[0-9\s\-()]{7,20}$/.test(formData.email.trim()))
                             }
-                            onClick={() => setStep(3)}
+                            onClick={() => goToStep(3)}
                             className="flex-1 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl"
                           >
                             Next <ChevronRight className="w-4 h-4 ml-1" />
@@ -489,7 +498,7 @@ export default function Contact() {
                         <div className="flex gap-3 pt-4">
                           <Button
                             type="button"
-                            onClick={() => setStep(2)}
+                            onClick={() => goToStep(2)}
                             variant="outline"
                             className="flex-1 h-12 rounded-xl text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10"
                           >
@@ -498,7 +507,7 @@ export default function Contact() {
                           <Button
                             type="button"
                             disabled={!formData.organization.trim() || !formData.role.trim()}
-                            onClick={() => setStep(4)}
+                            onClick={() => goToStep(4)}
                             className="flex-1 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl"
                           >
                             Next <ChevronRight className="w-4 h-4 ml-1" />
@@ -560,7 +569,7 @@ export default function Contact() {
                         <div className="flex gap-3 pt-4">
                           <Button
                             type="button"
-                            onClick={() => setStep(3)}
+                            onClick={() => goToStep(3)}
                             variant="outline"
                             className="flex-1 h-12 rounded-xl text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10"
                             disabled={isSubmitting}
