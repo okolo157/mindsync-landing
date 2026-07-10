@@ -18,11 +18,11 @@ export const DataConcert: React.FC = () => {
           
           {/* Left Column: Text Content */}
           <div className="space-y-8">
-            <div className="space-y-4">
+            <div className="space-y-4 text-center lg:text-left">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-indigo-600 dark:text-indigo-400 block">
                 The Core of a School is Data
               </span>
-              <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[0.9]">
                 Let Your Data Work <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
                   in Perfect Concert.
@@ -78,9 +78,8 @@ export const DataConcert: React.FC = () => {
 
           {/* Right Column: Beautiful Animated Diagram */}
           <div className="relative flex items-center justify-center min-h-[400px] sm:min-h-[500px]">
-            {/* Ambient glows behind the diagram */}
+            {/* Ambient glow behind the diagram */}
             <div className="absolute w-72 h-72 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 blur-[60px]" />
-            <div className="absolute w-48 h-48 rounded-full bg-purple-500/10 dark:bg-purple-500/20 blur-[50px] translate-x-12 translate-y-12" />
 
             <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center">
               

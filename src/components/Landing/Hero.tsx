@@ -22,7 +22,7 @@ export const Hero = () => {
                 <div className="flex flex-col items-center w-full">
                     <div className="text-center w-full">
                         <h1
-                            className="text-[4.25rem] sm:text-8xl lg:text-[9.25rem] font-black tracking-tight mb-8 leading-[0.9] text-slate-900 dark:text-white"
+                            className="text-[clamp(2.25rem,10vw,4.25rem)] sm:text-8xl lg:text-[9.25rem] font-black tracking-tight mb-8 leading-[0.9] text-slate-900 dark:text-white"
                         >
                             Infinite
                             <span className="block relative h-[1.1em] overflow-hidden">
