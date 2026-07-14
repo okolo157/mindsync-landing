@@ -17,10 +17,30 @@ const Landing: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "MindSync Solutions",
+    alternateName: "MindSync",
     url: "https://mindsync.solutions",
     logo: "https://mindsync.solutions/mindsync.svg",
     description:
       "MindSync Solutions provides a comprehensive ecosystem of educational technology products, including SIMS, LMS, Tutoring platforms, and more.",
+    sameAs: [
+      "https://www.instagram.com/mindsync.solutions",
+      "https://x.com/mindsyncsol",
+      "https://www.facebook.com/share/193YrZzH57/?mibextid=wwXIfr",
+      "https://blog.mindsync.solutions",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "sales@mindsync.solutions",
+        url: "https://mindsync.solutions/contact",
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "hello@mindsync.solutions",
+      },
+    ],
   };
 
   const ogImageSchema = {

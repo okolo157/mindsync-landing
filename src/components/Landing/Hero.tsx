@@ -68,7 +68,6 @@ export const Hero = () => {
                             >
                                 Explore Our Products
                                 <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform" />
-                                <div className="w-8 h-[2px] bg-slate-200 dark:bg-slate-800 group-hover:w-12 group-hover:bg-indigo-500 transition-all" />
                             </button>
                         </div>
                     </div>
