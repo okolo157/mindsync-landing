@@ -13,7 +13,7 @@ export const SEO = ({
     description = 'MindSync Solutions is an AI-first ecosystem for modern education — AI course creation, AI tutoring, and intelligent SIMS, LMS, and more.',
     type = 'website',
     canonicalUrl,
-    image = 'https://mindsync.solutions/og-image.png',
+    image = 'https://mindsync.solutions/og-image.jpg',
 }: SEOProps) => {
     const url = canonicalUrl || 'https://mindsync.solutions';
 
