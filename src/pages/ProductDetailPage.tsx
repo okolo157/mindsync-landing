@@ -57,6 +57,7 @@ const ProductDetailPage: React.FC = () => {
             />
             <Navbar />
 
+            <main>
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -189,6 +190,7 @@ const ProductDetailPage: React.FC = () => {
                     </div>
                 </div>
             </section>
+            </main>
 
             <Footer />
         </div>

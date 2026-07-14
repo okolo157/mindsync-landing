@@ -40,9 +40,9 @@ export const DataConcert: React.FC = () => {
                   <Share2 className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-1">
+                  <h3 className="font-bold text-slate-900 dark:text-white mb-1">
                     Ecosystem Integration
-                  </h4>
+                  </h3>
                   <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
                     Bi-directional sync links your SIMS, LMS, Coach, and Sport products to eliminate manual entry errors.
                   </p>
@@ -54,9 +54,9 @@ export const DataConcert: React.FC = () => {
                   <Code className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-1">
+                  <h3 className="font-bold text-slate-900 dark:text-white mb-1">
                     Custom Integrations & APIs
-                  </h4>
+                  </h3>
                   <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
                     Connect seamlessly to your custom products, legacy software, or third-party web services.
                   </p>

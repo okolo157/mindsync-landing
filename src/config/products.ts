@@ -12,6 +12,8 @@ export interface Product {
   link?: string;
   tagline: string;
   themeColor: string;
+  /** WCAG AA-safe variants of themeColor for small text on light/dark backgrounds. */
+  textColor: { light: string; dark: string };
   features: ProductFeature[];
 }
 
@@ -26,6 +28,7 @@ export const PRODUCTS: Product[] = [
       "MindSync SIMS (School Information Management System) is an institutional-grade, AI-powered ecosystem designed to handle the complex operational requirements of modern educational structures. From AI-driven timetabling to automated financial ledgers, it provides the intelligent digital backbone for schools of any scale.",
     link: "https://sims.mindsync.solutions",
     themeColor: "#4f46e5",
+    textColor: { light: "#4338ca", dark: "#818cf8" },
     features: [
       {
         title: "Timetable AI",
@@ -69,6 +72,7 @@ export const PRODUCTS: Product[] = [
       "Our AI-enhanced LMS empowers educators to create immersive digital learning experiences. Fully Canvas-compatible (supporting IMSCC standard packages), it features a built-in quiz builder, secure lockdown browser for exam integrity, and native support for AR/VR and AI tools.",
     link: "https://lms.mindsync.solutions",
     themeColor: "#8b5cf6",
+    textColor: { light: "#6d28d9", dark: "#a78bfa" },
     features: [
       {
         title: "Canvas Compatible",
@@ -111,6 +115,7 @@ export const PRODUCTS: Product[] = [
       "TutorSmart connects students with the highest caliber of educators across Australia. Every tutor is a verified, registered professional subject to rigorous background checks, providing one-to-one instruction with no lock-in contracts.",
     link: "https://tutorsmart.mindsync.solutions",
     themeColor: "#ec4899",
+    textColor: { light: "#be185d", dark: "#f472b6" },
     features: [
       {
         title: "Qualified Teachers",
@@ -144,6 +149,7 @@ export const PRODUCTS: Product[] = [
       "Coursify leverages advanced AI to rebrand and repurpose existing educational materials. Whether it's a PDF document, raw text, or a YouTube video, Coursify splits it into modules, summarizes key notes, creates quizzes, and exports it into major LMS formats (such as IMSCC or SCORM) in minutes.",
     link: "https://coursify.mindsync.solutions",
     themeColor: "#10b981",
+    textColor: { light: "#047857", dark: "#34d399" },
     features: [
       {
         title: "Smart Ingestion",
@@ -177,6 +183,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "MindSync Magazine bridges the communication gap between schools and families. Fully integrated with the SIMS student database, it automates the creation of beautiful, mobile-responsive newsletters and synchronized event notifications.",
     themeColor: "#f59e0b",
+    textColor: { light: "#b45309", dark: "#fbbf24" },
     features: [
       {
         title: "Parent Sync",
@@ -211,6 +218,7 @@ export const PRODUCTS: Product[] = [
       "Our recruitment engine utilizes advanced matching algorithms to find the best-suited relief teachers for urgent institutional openings. Average match time of 4 hours across 4,200+ verified professionals globally, spanning 32+ countries.",
     link: "https://jobs.mindsync.solutions",
     themeColor: "#3b82f6",
+    textColor: { light: "#1d4ed8", dark: "#60a5fa" },
     features: [
       {
         title: "AI-Powered Matching",
@@ -248,6 +256,7 @@ export const PRODUCTS: Product[] = [
       "Coach is an AI-native classroom suite designed to streamline educational workflows. It provides lesson planning, smart grading, and custom subject bots for teachers, paired with a 24/7 Socratic AI tutor, study notebooks, and gamified achievements for students.",
     link: "https://coach.mindsync.solutions",
     themeColor: "#f43f5e",
+    textColor: { light: "#be123c", dark: "#fb7185" },
     features: [
       {
         title: "Socratic AI Tutor",
@@ -297,6 +306,7 @@ export const PRODUCTS: Product[] = [
       "MindSync Sport is a comprehensive athletic management system. It coordinates school carnivals, schedules match brackets, records live event scores, tracks house standings, and manages sports equipment logistics.",
     link: "https://sport.mindsync.solutions",
     themeColor: "#06b6d4",
+    textColor: { light: "#0e7490", dark: "#22d3ee" },
     features: [
       {
         title: "Meet Manager",

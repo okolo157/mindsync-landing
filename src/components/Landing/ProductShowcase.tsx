@@ -1,5 +1,5 @@
 import { PRODUCTS } from "@/config/products";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { ProductQuickView } from "./ProductQuickView";
 import { 
   GraduationCap, Layout, Users, Zap, Share2, Bot, BookOpen, Trophy 
@@ -64,9 +64,12 @@ export const ProductShowcase = () => {
                   <h3 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
                     {product.name}
                   </h3>
-                  <div 
-                    className="text-[10px] font-bold uppercase tracking-widest opacity-80"
-                    style={{ color: product.themeColor }}
+                  <div
+                    className="text-[10px] font-bold uppercase tracking-widest [color:var(--tagline-light)] dark:[color:var(--tagline-dark)]"
+                    style={{
+                      "--tagline-light": product.textColor.light,
+                      "--tagline-dark": product.textColor.dark,
+                    } as CSSProperties}
                   >
                     {product.tagline}
                   </div>

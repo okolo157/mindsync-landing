@@ -5,8 +5,8 @@ import { useTheme } from "@/components/ThemeProvider";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { preloadCalendly } from "@/utils/calendly";
-import logoDark from "@/assets/mind-dark.png";
-import logoLight from "@/assets/mind-light.png";
+import logoDark from "@/assets/mind-dark.webp";
+import logoLight from "@/assets/mind-light.webp";
 import { PRODUCTS } from "@/config/products";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -53,6 +53,8 @@ export default function Navbar() {
           <img
             src={isDark ? logoDark : logoLight}
             alt="Logo"
+            width={340}
+            height={178}
             onClick={() => navigate("/")}
             className="w-20 sm:w-28 h-auto cursor-pointer hover:opacity-80 transition-opacity"
           />
@@ -177,6 +179,7 @@ export default function Navbar() {
         <div className="hidden md:flex flex-1 items-center justify-end gap-6">
           <button
             onClick={toggleTheme}
+            aria-label="Toggle theme"
             className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-white/5 flex items-center justify-center hover:scale-110 transition-transform"
           >
             {isDark ? (
@@ -201,6 +204,7 @@ export default function Navbar() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
+            aria-label="Toggle theme"
             className="rounded-full hover:bg-slate-100 dark:hover:bg-white/5"
           >
             {isDark ? <Sun /> : <Moon />}
@@ -208,7 +212,7 @@ export default function Navbar() {
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" aria-label="Open menu">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { PRODUCTS } from "@/config/products";
 import { SEO } from "@/components/SEO";
 import { StructuredData } from "@/components/StructuredData";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { ProductQuickView } from "@/components/Landing/ProductQuickView";
 import { 
   GraduationCap, Layout, Users, Zap, Share2, Bot, BookOpen, Trophy 
@@ -48,6 +48,7 @@ export default function Products() {
       <StructuredData data={productSchema} />
       <Navbar />
 
+      <main>
       {/* Hero Section */}
        <div className="relative pt-24 sm:pt-28 lg:pt-36 pb-16 sm:pb-20 lg:pb-24 overflow-hidden z-10">
         <div className="container mx-auto px-4 relative text-center">
@@ -104,9 +105,12 @@ export default function Products() {
                   <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-indigo-600 transition-colors duration-500">
                     {product.name}
                   </h2>
-                  <div 
-                    className="text-[10px] font-bold uppercase tracking-widest mb-8"
-                    style={{ color: product.themeColor }}
+                  <div
+                    className="text-[10px] font-bold uppercase tracking-widest mb-8 [color:var(--tagline-light)] dark:[color:var(--tagline-dark)]"
+                    style={{
+                      "--tagline-light": product.textColor.light,
+                      "--tagline-dark": product.textColor.dark,
+                    } as CSSProperties}
                   >
                     {product.tagline}
                   </div>
@@ -160,6 +164,7 @@ export default function Products() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

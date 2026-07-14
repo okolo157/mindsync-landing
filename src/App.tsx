@@ -1,28 +1,32 @@
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import Landing from "@/pages/Landing";
-import Products from "@/pages/Products";
-import Contact from "@/pages/Contact";
-import ScheduleDemo from "@/pages/ScheduleDemo";
-import ProductDetailPage from "@/pages/ProductDetailPage";
-import NotFound from "@/pages/NotFound";
-import SpeedTest from "@/pages/SpeedTest";
 import { ThemeProvider } from "@/components/ThemeProvider";
+
+const Products = lazy(() => import("@/pages/Products"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const ScheduleDemo = lazy(() => import("@/pages/ScheduleDemo"));
+const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const SpeedTest = lazy(() => import("@/pages/SpeedTest"));
 
 function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="mindsync-landing-theme">
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:productId" element={<ProductDetailPage />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/schedule-demo" element={<ScheduleDemo />} />
-          <Route path="/speed" element={<SpeedTest />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:productId" element={<ProductDetailPage />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/schedule-demo" element={<ScheduleDemo />} />
+            <Route path="/speed" element={<SpeedTest />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </ThemeProvider>
   )

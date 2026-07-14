@@ -32,56 +32,58 @@ const Landing: React.FC = () => {
       <StructuredData data={organizationSchema} />
       <Navbar />
 
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-indigo-500/5 dark:bg-indigo-500/10 blur-[80px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-purple-500/5 dark:bg-purple-500/10 blur-[80px]" />
-      </div>
+      <main>
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-indigo-500/5 dark:bg-indigo-500/10 blur-[80px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-purple-500/5 dark:bg-purple-500/10 blur-[80px]" />
+        </div>
 
-      <Hero />
+        <Hero />
 
-      <DataConcert />
+        <DataConcert />
 
-      <ProductShowcase />
+        <ProductShowcase />
 
-      <AdvantageSection />
+        <AdvantageSection />
 
-      <section className="py-32 relative overflow-hidden px-4">
-        <div className="max-w-[1400px] mx-auto relative group">
-          <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900 to-slate-900 rounded-[4rem] group-hover:scale-[1.01] transition-transform duration-700" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_50%)]" />
+        <section className="py-32 relative overflow-hidden px-4">
+          <div className="max-w-[1400px] mx-auto relative group">
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900 to-slate-900 rounded-[4rem] group-hover:scale-[1.01] transition-transform duration-700" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_50%)]" />
 
-          <div className="relative z-10 py-24 px-8 md:px-16 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
-                Architecting the Future
-                <span className="block text-indigo-400 opacity-90">
-                  of Education.
-                </span>
-              </h2>
-              <p className="text-xl md:text-2xl text-indigo-100/70 mb-12 font-medium">
-                Connect with our specialists today to orchestrate your
-                institution's digital transformation.
-              </p>
+            <div className="relative z-10 py-24 px-8 md:px-16 text-center">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
+                  Architecting the Future
+                  <span className="block text-indigo-400 opacity-90">
+                    of Education.
+                  </span>
+                </h2>
+                <p className="text-xl md:text-2xl text-indigo-100/70 mb-12 font-medium">
+                  Connect with our specialists today to orchestrate your
+                  institution's digital transformation.
+                </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-                <button
-                  onClick={() => navigate("/contact")}
-                  className="px-12 h-16 rounded-full bg-white text-slate-950 font-black text-lg hover:scale-105 transition-all shadow-2xl"
-                >
-                  Make Enquiry
-                </button>
-                <button
-                  onClick={() => navigate("/schedule-demo")}
-                  className="group text-indigo-200 hover:text-white font-bold flex items-center gap-2 transition-colors text-lg"
-                >
-                  Book Consultation
-                  <div className="w-8 h-[2px] bg-indigo-200/30 group-hover:w-12 group-hover:bg-white transition-all" />
-                </button>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+                  <button
+                    onClick={() => navigate("/contact")}
+                    className="px-12 h-16 rounded-full bg-white text-slate-950 font-black text-lg hover:scale-105 transition-all shadow-2xl"
+                  >
+                    Make Enquiry
+                  </button>
+                  <button
+                    onClick={() => navigate("/schedule-demo")}
+                    className="group text-indigo-200 hover:text-white font-bold flex items-center gap-2 transition-colors text-lg"
+                  >
+                    Book Consultation
+                    <div className="w-8 h-[2px] bg-indigo-200/30 group-hover:w-12 group-hover:bg-white transition-all" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>
