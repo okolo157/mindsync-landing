@@ -18,15 +18,15 @@ export default function Footer() {
               <img
                 src={logoLight}
                 alt="Mindsync Logo"
-                width={340}
-                height={178}
+                width={280}
+                height={147}
                 className="h-10 w-auto dark:hidden"
               />
               <img
                 src={logoDark}
                 alt="Mindsync Logo"
-                width={340}
-                height={185}
+                width={280}
+                height={152}
                 className="h-10 w-auto hidden dark:block text-white"
               />
               <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-300">

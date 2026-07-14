@@ -53,8 +53,8 @@ export default function Navbar() {
           <img
             src={isDark ? logoDark : logoLight}
             alt="Logo"
-            width={340}
-            height={178}
+            width={280}
+            height={147}
             onClick={() => navigate("/")}
             className="w-20 sm:w-28 h-auto cursor-pointer hover:opacity-80 transition-opacity"
           />
