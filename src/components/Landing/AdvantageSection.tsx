@@ -20,7 +20,7 @@ export const AdvantageSection = () => {
     { 
       icon: Zap, 
       title: 'Operational Velocity', 
-      desc: 'Reduce administrative friction and accelerate learning outcomes with tools that work in perfect concert.' 
+      desc: 'Reduce administrative friction and accelerate learning outcomes with tools that work as one.'
     }
   ];
 

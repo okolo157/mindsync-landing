@@ -215,7 +215,7 @@ export const PRODUCTS: Product[] = [
     description:
       "An AI-powered recruitment engine designed for high-speed teacher staffing for schools that need them.",
     longDescription:
-      "Our recruitment engine utilizes advanced matching algorithms to find the best-suited relief teachers for urgent institutional openings. Average match time of 4 hours across 4,200+ verified professionals globally, spanning 32+ countries.",
+      "Our recruitment engine utilizes advanced matching algorithms to find the best-suited relief teachers for urgent institutional openings. Average match time of 4 hours across 2,300+ verified teachers, with 100+ placed in educational institutions.",
     link: "https://jobs.mindsync.solutions",
     themeColor: "#3b82f6",
     textColor: { light: "#1d4ed8", dark: "#60a5fa" },
@@ -229,7 +229,7 @@ export const PRODUCTS: Product[] = [
       {
         title: "Global Network",
         description:
-          "Access to 4,200+ verified professionals in 32+ countries.",
+          "Access to 2,300+ verified teachers, 100+ already placed in schools.",
         iconName: "MapPin",
       },
       {

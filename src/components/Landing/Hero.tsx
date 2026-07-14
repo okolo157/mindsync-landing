@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Rocket, MessageSquare } from "lucide-react";
+import { ArrowDown, MessageSquare } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { preloadCalendly } from "@/utils/calendly";
 
 export const Hero = () => {
     const navigate = useNavigate();
     const [index, setIndex] = useState(0);
-    const words = ["Intelligence.", "Potential.", "Learning.", "Solutions.", "Evolution."];
+    const words = ["Schools.", "Learning.", "Teaching.", "Tutoring.", "Staffing."];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -24,8 +23,8 @@ export const Hero = () => {
                         <h1
                             className="text-[clamp(3rem,15vw,4.25rem)] sm:text-8xl lg:text-[9.25rem] font-black tracking-tight mb-8 leading-[0.9] text-slate-900 dark:text-white"
                         >
-                            Infinite
-                            <span className="block relative h-[1.1em] overflow-hidden">
+                            Smarter
+                            <span className="block relative h-[1.2em] overflow-hidden">
                                 <AnimatePresence mode="wait">
                                     <motion.span
                                         key={words[index]}
@@ -44,8 +43,9 @@ export const Hero = () => {
                         <p
                             className="text-lg sm:text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-normal"
                         >
-                            MindSync Solutions uses AI to solve the real problems in education.
-                            A suite of intelligent tools, all connected, for schools, teachers, students, and parents.
+                            MindSync Solutions uses AI to fix what slows schools down: admin overload,
+                            teacher shortages, and disconnected data. Eight connected products,
+                            from SIMS and LMS to tutoring and staffing.
                         </p>
 
                         <div
@@ -56,19 +56,18 @@ export const Hero = () => {
                                 className="group relative inline-flex items-center justify-center px-10 h-16 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:scale-105 transition-all duration-500 font-bold overflow-hidden shadow-2xl"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
-                                    Make Enquiry
+                                    Talk to Us
                                     <MessageSquare className="h-5 w-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </button>
 
                             <button
-                                onClick={() => navigate("/schedule-demo")}
-                                onMouseEnter={preloadCalendly}
+                                onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
                                 className="group text-slate-600 dark:text-slate-400 font-bold flex items-center gap-2 hover:text-indigo-600 transition-colors"
                             >
-                                Book Consultation
-                                <Rocket className="h-4 w-4" />
+                                Explore Our Products
+                                <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform" />
                                 <div className="w-8 h-[2px] bg-slate-200 dark:bg-slate-800 group-hover:w-12 group-hover:bg-indigo-500 transition-all" />
                             </button>
                         </div>

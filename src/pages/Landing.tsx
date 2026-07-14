@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Landing/Navbar";
 import Footer from "@/components/Landing/Footer";
 import { AdvantageSection } from "@/components/Landing/AdvantageSection";
+import { TrustStrip } from "@/components/Landing/TrustStrip";
 import { ProductShowcase } from "@/components/Landing/ProductShowcase";
 import { DataConcert } from "@/components/Landing/DataConcert";
 import { Hero } from "@/components/Landing/Hero";
@@ -40,11 +41,13 @@ const Landing: React.FC = () => {
 
         <Hero />
 
-        <DataConcert />
-
         <ProductShowcase />
 
+        <DataConcert />
+
         <AdvantageSection />
+
+        <TrustStrip />
 
         <section className="py-32 relative overflow-hidden px-4">
           <div className="max-w-[1400px] mx-auto relative group">
@@ -69,7 +72,7 @@ const Landing: React.FC = () => {
                     onClick={() => navigate("/contact")}
                     className="px-12 h-16 rounded-full bg-white text-slate-950 font-black text-lg hover:scale-105 transition-all shadow-2xl"
                   >
-                    Make Enquiry
+                    Talk to Us
                   </button>
                   <button
                     onClick={() => navigate("/schedule-demo")}

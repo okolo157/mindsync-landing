@@ -194,7 +194,7 @@ export default function Navbar() {
             onMouseEnter={preloadCalendly}
             className="px-8 h-12 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold text-sm hover:scale-105 transition-all shadow-xl"
           >
-            Consult Expert
+            Book Consultation
           </button>
         </div>
 
@@ -253,7 +253,7 @@ export default function Navbar() {
                     onMouseEnter={preloadCalendly}
                     className="w-full h-14 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold text-lg"
                   >
-                    Consult Expert
+                    Book Consultation
                   </button>
                 </div>
               </div>

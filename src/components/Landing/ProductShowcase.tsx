@@ -20,7 +20,7 @@ export const ProductShowcase = () => {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
   return (
-    <section className="py-32 relative overflow-hidden bg-white dark:bg-[#030712]">
+    <section id="products" className="py-32 relative overflow-hidden bg-white dark:bg-[#030712] scroll-mt-20">
       {/* Decorative lines / Background accent */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent" />
 
@@ -35,7 +35,7 @@ export const ProductShowcase = () => {
             className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium"
           >
             Each platform in the MindSync ecosystem is meticulously engineered around AI,
-            working in concert to provide an intelligent operational backbone for your institution.
+            working together to provide an intelligent operational backbone for your institution.
           </p>
         </div>
 
