@@ -23,6 +23,19 @@ const Landing: React.FC = () => {
       "MindSync Solutions provides a comprehensive ecosystem of educational technology products, including SIMS, LMS, Tutoring platforms, and more.",
   };
 
+  const ogImageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    contentUrl: "https://mindsync.solutions/og-image.jpg",
+    creator: {
+      "@type": "Person",
+      name: "Sharon Ogunwale",
+      url: "https://ogunwalesharon.framer.website",
+    },
+    creditText: "Sharon Ogunwale",
+    copyrightNotice: "© 2026 MindSync Solutions. Design by Sharon Ogunwale.",
+  };
+
   return (
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] px-3 text-slate-900 dark:text-white overflow-x-clip selection:bg-indigo-500/30 font-sans transition-colors duration-300">
       <SEO
@@ -31,6 +44,7 @@ const Landing: React.FC = () => {
         canonicalUrl="https://mindsync.solutions"
       />
       <StructuredData data={organizationSchema} />
+      <StructuredData data={ogImageSchema} />
       <Navbar />
 
       <main>
