@@ -1,0 +1,24 @@
+# MindSync Solutions
+
+> MindSync Solutions is an AI-first ecosystem for modern education, providing AI-driven course creation, AI tutoring, and intelligent SIMS & LMS platforms for schools, teachers, students, and parents.
+
+MindSync Solutions builds a suite of interoperable AI products for educational institutions, covering school administration, learning management, tutoring, course conversion, parent communication, staffing, classroom AI tools, and athletic operations. Products share data through bi-directional sync across the ecosystem.
+
+## Products
+
+- [MindSync SIMS](https://sims.mindsync.solutions): AI-powered School Information Management System for student data, timetabling, finance, HR, and attendance.
+- [MindSync LMS](https://lms.mindsync.solutions): AI-enhanced Learning Management System with Canvas-compatible course packages, quiz building, and lockdown exam mode.
+- [TutorSmart](https://tutorsmart.mindsync.solutions): One-to-one tutoring platform powered by verified, registered teachers.
+- [Coursify](https://coursify.mindsync.solutions): AI tool that converts PDFs, documents, and videos into interactive, LMS-compatible courses.
+- [MindSync Magazine](https://mindsync.solutions/products/magazine): Newsletter and event portal syncing school announcements to parents.
+- [MindSync Jobs](https://jobs.mindsync.solutions): AI-powered recruitment engine for relief and substitute teacher staffing.
+- [MindSync Coach](https://coach.mindsync.solutions): AI classroom suite for lesson planning, grading rubrics, and a Socratic AI tutor.
+- [MindSync Sport](https://sport.mindsync.solutions): Athletic operations hub for meets, live scoreboards, and equipment booking.
+
+## Company
+
+- [Homepage](https://mindsync.solutions): Overview of the MindSync ecosystem.
+- [All Products](https://mindsync.solutions/products): Full product catalog.
+- [Contact](https://mindsync.solutions/contact): Get in touch with the MindSync Solutions team.
+- [Schedule a Demo](https://mindsync.solutions/schedule-demo): Book a consultation with product specialists.
+- [Blog](https://blog.mindsync.solutions): Product updates, insights, and education technology news.
