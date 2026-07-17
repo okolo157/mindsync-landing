@@ -1,11 +1,6 @@
-import { PRODUCTS } from "@/config/products";
 import { cn } from "@/lib/utils";
 
 const stats = [
-  {
-    value: String(PRODUCTS.length),
-    label: "Connected products sharing one data core",
-  },
   {
     value: "2,300+",
     label: "Verified teachers in the Jobs network",
@@ -35,7 +30,7 @@ export const TrustStrip = () => {
               className={cn(
                 "text-center",
                 index === stats.length - 1 &&
-                  "col-span-2 sm:col-span-1 max-w-[220px] mx-auto sm:max-w-none"
+                  "col-span-2 sm:col-span-1 max-w-[220px] mx-auto sm:max-w-none",
               )}
             >
               <div className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-2 sm:mb-3">
