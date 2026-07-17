@@ -77,14 +77,7 @@ const ProductDetailPage: React.FC = () => {
                     </button>
 
                     <div className="max-w-4xl">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="inline-block px-4 py-1.5 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8"
-                        >
-                            {product.tagline}
-                        </motion.div>
-                        <motion.h1 
+                        <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
