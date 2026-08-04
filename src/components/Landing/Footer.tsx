@@ -119,35 +119,38 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs uppercase tracking-wider text-slate-400 dark:text-slate-500">
-          <span>© {new Date().getFullYear()} MindSync Solutions</span>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://policies.mindsync.solutions/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-600 transition-colors"
-            >
-              Privacy
-            </a>
-            <a
-              href="https://policies.mindsync.solutions/terms"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-600 transition-colors"
-            >
-              Terms
-            </a>
-             <a
-              href="https://tglewsgmrjbepakwbsju.supabase.co/storage/v1/object/public/mindsync-docs/brochure/mindsync_brochure.pdf"
-              // target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-600 transition-colors"
-            >
-              Download Our Brochure
-            </a>
-          </div>
+       <div className="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        <span>© {new Date().getFullYear()} MindSync Solutions</span>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href="https://policies.mindsync.solutions/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+          >
+            Privacy
+          </a>
+
+          <a
+            href="https://policies.mindsync.solutions/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+          >
+            Terms
+          </a>
+
+          <a
+            href="https://tglewsgmrjbepakwbsju.supabase.co/storage/v1/object/public/mindsync-docs/brochure/mindsync_brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="normal-case font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
+          >
+            Download Brochure
+          </a>
         </div>
+      </div>
       </div>
     </footer>
   );
