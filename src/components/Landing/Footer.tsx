@@ -138,6 +138,14 @@ export default function Footer() {
             >
               Terms
             </a>
+             <a
+              href="https://tglewsgmrjbepakwbsju.supabase.co/storage/v1/object/public/mindsync-docs/brochure/mindsync_brochure.pdf"
+              // target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-600 transition-colors"
+            >
+              Download Our Brochure
+            </a>
           </div>
         </div>
       </div>
