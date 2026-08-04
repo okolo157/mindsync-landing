@@ -145,7 +145,7 @@ export default function Footer() {
             href="https://tglewsgmrjbepakwbsju.supabase.co/storage/v1/object/public/mindsync-docs/brochure/mindsync_brochure.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="normal-case font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
+            className="normal-case uppercase font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
           >
             Download Brochure
           </a>
