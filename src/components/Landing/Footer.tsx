@@ -29,6 +29,9 @@ export default function Footer() {
                 height={152}
                 className="h-10 w-auto hidden dark:block text-white"
               />
+              <p className="text-base font-semibold tracking-tight text-slate-900 dark:text-white">
+                MindSync Education Solutions
+              </p>
               <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 AI-powered products built to help schools, teachers, students, and parents
                 learn smarter and move faster.
@@ -120,7 +123,7 @@ export default function Footer() {
         </div>
 
        <div className="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs uppercase tracking-wider text-slate-400 dark:text-slate-500">
-        <span>© {new Date().getFullYear()} MindSync Solutions</span>
+        <span>© {new Date().getFullYear()} MindSync Education Solutions</span>
 
         <div className="flex flex-wrap items-center gap-4">
           <a
