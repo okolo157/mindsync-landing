@@ -236,9 +236,9 @@ export default function Contact() {
               Get in Touch
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-normal">
-              Ready to transform your educational future? Our team is here to
-              help you navigate our ecosystem and find the perfect solutions for
-              your needs.
+              Ready to transform your educational future? Our team in Ghana,
+              Nigeria, and Australia is here to help you navigate our ecosystem
+              and find the right solutions for your community.
             </p>
           </div>
 

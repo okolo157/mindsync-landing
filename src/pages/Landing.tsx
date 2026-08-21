@@ -60,7 +60,7 @@ const Landing: React.FC = () => {
     <div className="min-h-screen bg-[#FCFDFF] dark:bg-[#030712] px-3 text-slate-900 dark:text-white overflow-x-clip selection:bg-indigo-500/30 font-sans transition-colors duration-300">
       <SEO
         title="MindSync Solutions | AI-First Education Platform"
-        description="Discover the AI-first MindSync ecosystem. From AI course creation and AI tutoring to intelligent school management, we power the future of education."
+        description="Discover the AI-first MindSync ecosystem shaped by African school realities. From AI course creation and AI tutoring to intelligent school management, we power the future of education."
         canonicalUrl="https://mindsync.solutions"
       />
       <StructuredData data={organizationSchema} />
@@ -69,8 +69,8 @@ const Landing: React.FC = () => {
 
       <main>
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-indigo-500/5 dark:bg-indigo-500/10 blur-[80px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-purple-500/5 dark:bg-purple-500/10 blur-[80px]" />
+          <div className="absolute top-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-emerald-500/5 dark:bg-emerald-500/10 blur-[80px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-amber-500/5 dark:bg-amber-500/10 blur-[80px]" />
         </div>
 
         <Hero />
@@ -85,20 +85,20 @@ const Landing: React.FC = () => {
 
         <section className="py-32 relative overflow-hidden px-4">
           <div className="max-w-[1400px] mx-auto relative group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900 to-slate-900 rounded-[4rem] group-hover:scale-[1.01] transition-transform duration-700" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_50%)]" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-900 via-amber-900 to-slate-900 rounded-[4rem] group-hover:scale-[1.01] transition-transform duration-700" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.18),transparent_50%)]" />
 
             <div className="relative z-10 py-24 px-8 md:px-16 text-center">
               <div className="max-w-3xl mx-auto">
                 <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
-                  Architecting the Future
-                  <span className="block text-indigo-400 opacity-90">
-                    of Education.
+                  Designing the Future
+                  <span className="block text-amber-300 opacity-90">
+                    of African Education.
                   </span>
                 </h2>
-                <p className="text-xl md:text-2xl text-indigo-100/70 mb-12 font-medium">
-                  Connect with our specialists today to orchestrate your
-                  institution's digital transformation.
+                <p className="text-xl md:text-2xl text-amber-50/80 mb-12 font-medium">
+                  Connect with our specialists to scale digital transformation across
+                  Ghana, Nigeria, and every community you serve.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
@@ -110,10 +110,10 @@ const Landing: React.FC = () => {
                   </button>
                   <button
                     onClick={() => navigate("/schedule-demo")}
-                    className="group text-indigo-200 hover:text-white font-bold flex items-center gap-2 transition-colors text-lg"
+                    className="group text-amber-100 hover:text-white font-bold flex items-center gap-2 transition-colors text-lg"
                   >
                     Book Consultation
-                    <div className="w-8 h-[2px] bg-indigo-200/30 group-hover:w-12 group-hover:bg-white transition-all" />
+                    <div className="w-8 h-[2px] bg-amber-100/40 group-hover:w-12 group-hover:bg-white transition-all" />
                   </button>
                 </div>
               </div>
