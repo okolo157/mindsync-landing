@@ -33,8 +33,8 @@ export default function Footer() {
                 MindSync Education Solutions
               </p>
               <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                AI-powered products built to help schools, teachers, students, and parents
-                learn smarter and move faster.
+                AI-powered products built with insight from African classrooms to help schools,
+                teachers, students, and parents learn smarter and move faster.
               </p>
             </div>
             <div className="text-sm space-y-2">
@@ -110,7 +110,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-sm">
-              Follow us for product updates, insights, and education technology news.
+              Follow us for product updates, African education insights, and edtech news.
             </p>
             <div className="pt-4 text-xs text-slate-400 dark:text-slate-500 leading-relaxed border-t border-slate-100 dark:border-white/5 space-y-0.5">
               <p className="font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-[9px] mb-1">🇦🇺 Australia Office</p>

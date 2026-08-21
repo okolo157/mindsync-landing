@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const Hero = () => {
     const navigate = useNavigate();
     const [index, setIndex] = useState(0);
-    const words = ["Schools.", "Learning.", "Teaching.", "Tutoring.", "Staffing."];
+    const words = ["Schools.", "Campuses.", "Learning.", "Teaching.", "Tutoring."];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -32,7 +32,7 @@ export const Hero = () => {
                                         animate={{ y: 0, opacity: 1 }}
                                         exit={{ y: "-100%", opacity: 0 }}
                                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                                        className="absolute inset-0 text-indigo-600 dark:text-indigo-500 w-full"
+                                        className="absolute inset-0 text-emerald-600 dark:text-emerald-500 w-full"
                                     >
                                         {words[index]}
                                     </motion.span>
@@ -44,8 +44,8 @@ export const Hero = () => {
                             className="text-lg sm:text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-normal"
                         >
                             MindSync Solutions uses AI to fix what slows schools down: admin overload,
-                            teacher shortages, and disconnected data. Eight connected products,
-                            from SIMS and LMS to tutoring and staffing.
+                            teacher shortages, and disconnected data. Built with real insight from
+                            Ghana and Nigeria, our eight connected products support schools across Africa and beyond.
                         </p>
 
                         <div
@@ -59,12 +59,12 @@ export const Hero = () => {
                                     Talk to Us
                                     <MessageSquare className="h-5 w-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 via-amber-500 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </button>
 
                             <button
                                 onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
-                                className="group text-slate-600 dark:text-slate-400 font-bold flex items-center gap-2 hover:text-indigo-600 transition-colors"
+                                className="group text-slate-600 dark:text-slate-400 font-bold flex items-center gap-2 hover:text-emerald-600 transition-colors"
                             >
                                 Explore Our Products
                                 <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform" />

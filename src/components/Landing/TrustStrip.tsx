@@ -1,15 +1,15 @@
 const stats = [
   {
     value: "2,300+",
-    label: "Verified teachers in the Jobs network",
+    label: "Verified teachers in our network",
   },
   {
     value: "100+",
-    label: "Teachers placed in educational institutions",
+    label: "Teachers placed across Ghana, Nigeria, and beyond",
   },
   {
     value: "300+",
-    label: "Qualified tutors matched with students",
+    label: "Qualified tutors matched with learners",
   },
   {
     value: "Vetted",
